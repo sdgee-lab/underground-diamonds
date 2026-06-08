@@ -1,0 +1,137 @@
+% !TeX program = lualatex
+
+\documentclass[11pt, a4paper]{book}
+
+\usepackage[a4paper, inner=2.5cm, outer=2.5cm, top=2.5cm, bottom=2.5cm, bindingoffset=0.5cm]{geometry} 
+%\usepackage[scaled=.92]{courier}
+\usepackage[final,nopatch=footnote]{microtype} %justification
+\usepackage{graphicx} %for pictures
+\usepackage{wrapfig}
+\usepackage{enumitem}
+\usepackage{hhline}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\numberwithin{equation}{chapter}
+
+\usepackage[useregional]{datetime2}
+
+\usepackage{lipsum}
+
+%\usepackage[T1, T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+\usepackage{fontspec}
+\setmainfont{FreeSerif}
+\usepackage{alphabeta}
+\usepackage{csquotes}
+\usepackage{polyglossia}
+\setdefaultlanguage{greek}
+\setotherlanguages{english}
+\usepackage[normalem]{ulem}
+
+\usepackage{hyperref}
+%%footers and headers
+\usepackage{fancyhdr}
+\fancyhf{} %clear old
+%\fancyhead[RO]{\nouppercase{Διπλωματική $|$ Ιούνιος 2019}}
+%\fancyhead[RE]{\nouppercase{Διπλωματική $|$ Ιούνιος 2019}}
+\fancyfoot[RO]{\thepage}
+\fancyfoot[LE]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\pagestyle{fancy}
+\setlength{\headheight}{13.6pt}
+
+\usepackage{float}
+%\usepackage{index}
+\usepackage{parskip} 
+\usepackage{setspace} %affects spacing document wise
+\usepackage{booktabs} % \toprule \midrule \bottomrule \hline
+
+\usepackage{biblatex}
+\addbibresource{refs.bib}
+
+\usepackage{url}
+
+%\addbibresource{citation}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	citecolor = violet
+}
+
+\urlstyle{same}
+%\DTMlangsetup{showdayofmonth=false}
+
+
+%\usepackage{biblatex}
+
+\usepackage[dvipsnames]{xcolor}
+
+% New command for the figure / equation / table format ->: Fig.X.Y
+\newcommand{\figref}{Σχήμα \ref}
+\newcommand{\eqnref}{Εξ.\eqref}
+\newcommand{\tableref}{Πιν. \ref}
+
+% for review
+\usepackage{soul}
+%\usepackage[T1]{fontenc}
+\usepackage{arydshln}
+\usepackage[normalem]{ulem}
+\newcommand{\strike}[1]{{\color{red} \sout{#1}}}
+\newcommand{\note}[1]{{\hl{#1}}}
+\newcommand{\replace}[1]{{\color{red} {#1}}}
+\usepackage[textwidth=2.5cm, textsize=small]{todonotes}
+
+\pagenumbering{roman}
+
+
+%-----------------------------------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+	\input{0_cover.tex} %0_cover.tex
+	
+	\newpage
+	\pagestyle{empty}
+	
+	\input{0a_Acknowledgements.tex}
+	\input{0b_GR_Abstract.tex}
+	
+	%___TABLE OF CONTENTS___________________________________
+	
+%	\tableofcontents
+
+	\newpage
+	\thispagestyle{plain} % empty
+	\mbox{}
+	
+	%%%___LIST OF FIGURES______________________________________________    
+%	\listoffigures
+	
+	%%%___LIST OF TABLES_______________________________________________
+	
+%	\listoftables
+	
+	%___MAIN TEXT____________________________________________________
+	
+
+	\input{intro.tex}
+ 	\input{hazard.tex}
+
+	
+	%%%___BIBLIOGRAPHY_______________________________________________
+			
+	\newpage
+	\pagestyle{empty}
+	
+	\section*{Βιβλιογραφία}
+
+%	\printbibliography
+
+	
+\end{document}
