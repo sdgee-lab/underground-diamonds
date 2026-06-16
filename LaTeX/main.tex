@@ -48,12 +48,27 @@
 \usepackage{setspace} %affects spacing document wise
 \usepackage{booktabs} % \toprule \midrule \bottomrule \hline
 
-\usepackage{biblatex}
+\usepackage[style=authoryear, maxbibnames=20, maxcitenames = 2, mincitenames=1, dashed=false, uniquename=minfull, sortcites=no]{biblatex}
+
+\DeclareCiteCommand{\parencite}[\mkbibparens]
+{\usebibmacro{prenote}}
+{\usebibmacro{citeindex}%
+	\printtext[bibhyperref]{\usebibmacro{cite}}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+
+\DeclareCiteCommand*{\parencite}[\mkbibparens]
+{\usebibmacro{prenote}}
+{\usebibmacro{citeindex}%
+	\printtext[bibhyperref]{\usebibmacro{citeyear}}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+
 \addbibresource{refs.bib}
 
 \usepackage{url}
 
-%\addbibresource{citation}
+\addbibresource{citation}
 
 \hypersetup{
 	colorlinks=true,
@@ -66,8 +81,6 @@
 \urlstyle{same}
 %\DTMlangsetup{showdayofmonth=false}
 
-
-%\usepackage{biblatex}
 
 \usepackage[dvipsnames]{xcolor}
 
@@ -86,8 +99,7 @@
 \newcommand{\replace}[1]{{\color{red} {#1}}}
 \usepackage[textwidth=2.5cm, textsize=small]{todonotes}
 
-\pagenumbering{roman}
-
+\setcounter{secnumdepth}{3}
 
 %-----------------------------------------------------------------------------------------------------------------
 
@@ -104,7 +116,7 @@
 	
 	%___TABLE OF CONTENTS___________________________________
 	
-%	\tableofcontents
+	\tableofcontents
 
 	\newpage
 	\thispagestyle{plain} % empty
@@ -129,9 +141,9 @@
 	\newpage
 	\pagestyle{empty}
 	
-	\section*{Βιβλιογραφία}
+	%\section*{Βιβλιογραφία}
 
-%	\printbibliography
+	\printbibliography
 
 	
 \end{document}
