@@ -1,7 +1,7 @@
 0 header
 1 code FLAC 8.1
 1 source giic v2.20.533
-1 date Mon Jun 29 08:50:25 EEST 2026
+1 date Fri Jul 03 21:17:07 EEST 2026
 1 type giic-save
 1 rampcolor 4
 0 flac
@@ -28,8 +28,8 @@
 1 plot 0
 2 display
 3 viewport
-4 center 9.981346,9.264454
-4 radius 57.103718
+4 center 11.038821,13.670605
+4 radius 32.23355
 4 orientation 0.0
 2 command plot pen bou syy
 2 name bou syy
@@ -55,8 +55,8 @@
 1 plot 0
 2 display
 3 viewport
-4 center 1.9289478,22.992287
-4 radius 19.98754
+4 center 2.5300293,20.107094
+4 radius 38.950066
 4 orientation 0.0
 2 command plot pen vel bou
 2 name vel bou
@@ -592,17 +592,260 @@
 5 text apply relax nsteps 30 rstop 0.0 from 161,11 to 141,11
 5 text apply relax nsteps 30 rstop 0.0 from 243,1 to 231,1
 5 text solve
-3 state
-4 file dynamic.sav
-4 lastedit 1782711202761
-4 batch
-5 text struct prop 5001 density 2500.0
-5 text 
-5 text set dyn on
-5 text his read 100 test.his
-5 text apply  xvel=0.03   hist   table 100   j=1
-5 text apply  yvel=0.00                      j=1
-5 text 
+3 branch PGV 62
+4 state
+5 file PGV-62.sav
+5 lastedit 1783102471243
+5 batch
+6 text struct prop 5001 density 2500.0
+6 text ;
+6 text set mech on
+6 text set dyn=on
+6 text ;set flow on
+6 text ;set mu on
+6 text ;set fast off
+6 text set dytime=0.0
+6 text set step 200000000
+6 text set large
+6 text set ncwrite 100                    ; set saving step
+6 text set overwrite on
+6 text ;
+6 text ;set dy_damping local 0.02
+6 text set dy_damp rayl 0.01 4.5       ; define 1% damping for ground elements
+6 text ini dy_damp hyst sig3 1.0 -0.45 -1.1  ; define hysteris of ground elements G D
+6 text ;
+6 text ;Read Velocity Time History
+6 text his read 100 ../Time-Histories/Vel_c/62_PGV.his
+6 text hist write 100 table 100
+6 text ;
+6 text ; apply dynamic boundaries at side boundaries and bottom boundary
+6 text ini xvel=0.0 yvel=0.0 xdisp=0.0 ydisp=0.0
+6 text ;
+6 text ; Velocity Time History
+6 text apply ff
+6 text attach aside from 1,1 to 1,32 bside from 81,1 to 81,32
+6 text attach aside from 82,1 to 82,21 bside from 81,32 to 81,52
+6 text attach aside from 244,1 to 244,10 bside from 277,1 to 277,10
+6 text ;fix y from 1,1 to 81,1
+6 text ;fix y from 1,1 to 1,32
+6 text ;fix y from 82,1 to 82,21
+6 text ;fix y from 244,1 to 244,10
+6 text ;fix y from 81,1 to 81,52
+6 text ;fix y from 277,1 to 277,10
+6 text apply xvel=0.01 hist table 100 i=1,81 j=1
+6 text apply yvel=0.0 i=1,81 j=1
+6 text ;
+6 text hist reset
+6 text history nstep 100
+6 text history 2 dytime
+6 text ;
+6 text ;
+6 text ;
+6 text ; bl tr moment
+6 text history 201 element 33 moment1
+6 text history 202 element 73 moment1
+6 text ; br tl
+6 text history 211 element 53 moment1
+6 text history 212 element 13 moment1
+6 text ;
+6 text history 101 xdisp i=192, j=21
+6 text history 102 ydisp i=192, j=21
+6 text history 103 xdisp i=182, j=71
+6 text history 104 ydisp i=192, j=61
+6 text ;
+6 text history 111 xdisp i=192, j=41
+6 text history 112 ydisp i=192, j=41
+6 text history 113 xdisp i=162, j=71
+6 text history 114 ydisp i=162, j=71
+6 text ;
+6 text ;
+6 text ;
+6 text ;
+6 text history 10 xdisp i=233 j=1
+6 text ;
+6 text history 40 ydisp i=233 j=1
+6 text ;
+6 text history 50 xaccel i=234 j=19
+6 text history 51 xaccel i=269 j=9
+6 text ;
+6 text history 60 xvel i=77 j=1
+6 text ;
+6 text set dydt = 0.00001
+6 text solve dytime = 45.89 ; set time of input motion
+6 text ;
+6 text ;
+6 text set hisfile=PGV_62/100.txt
+6 text hist write 100 vs 2
+6 text ;
+6 text set hisfile=PGV_62/0010_Xdis_233_1.txt
+6 text hist write 10 vs 2
+6 text set hisfile=PGV_62/0040_Ydis_233_1.txt
+6 text hist write 40 vs 2
+6 text set hisfile=PGV_62/0050_Xacc_234_19.txt
+6 text hist write 50 vs 2
+6 text set hisfile=PGV_62/0051_Xacc_269_9.txt
+6 text hist write 51 vs 2
+6 text set hisfile=PGV_62/0060_Xvel_77_1.txt
+6 text hist write 60 vs 2
+6 text ;
+6 text set hisfile=PGV_62/m_1.txt
+6 text hist write 201 vs 2
+6 text set hisfile=PGV_62/m_2.txt
+6 text hist write 202 vs 2
+6 text ;
+6 text set hisfile=PGV_62/m_3.txt
+6 text hist write 211 vs 2
+6 text set hisfile=PGV_62/m_4.txt
+6 text hist write 212 vs 2
+6 text ;
+6 text ;
+6 text set hisfile=PGV_62/x_1.txt
+6 text hist write 101 vs 2
+6 text set hisfile=PGV_62/y_1.txt
+6 text hist write 102 vs 2
+6 text set hisfile=PGV_62/x_2.txt
+6 text hist write 103 vs 2
+6 text set hisfile=PGV_62/y_2.txt
+6 text hist write 104 vs 2
+6 text ;
+6 text ;
+6 text set hisfile=PGV_62/x_3.txt
+6 text hist write 111 vs 2
+6 text set hisfile=PGV_62/y_3.txt
+6 text hist write 112 vs 2
+6 text set hisfile=PGV_62/x_4.txt
+6 text hist write 113 vs 2
+6 text set hisfile=PGV_62/y_4.txt
+6 text hist write 114 vs 2
+6 text ;
+6 text ;
+3 branch PGV 44
+4 state
+5 file PGV_44.sav
+5 lastedit 1783102615128
+5 batch
+6 text struct prop 5001 density 2500.0
+6 text ;
+6 text set mech on
+6 text set dyn=on
+6 text ;set flow on
+6 text ;set mu on
+6 text ;set fast off
+6 text set dytime=0.0
+6 text set step 200000000
+6 text set large
+6 text set ncwrite 100                    ; set saving step
+6 text set overwrite on
+6 text ;
+6 text ;set dy_damping local 0.02
+6 text set dy_damp rayl 0.01 4.5       ; define 1% damping for ground elements
+6 text ini dy_damp hyst sig3 1.0 -0.45 -1.1  ; define hysteris of ground elements G D
+6 text ;
+6 text ;Read Velocity Time History
+6 text his read 100 ../Time-Histories/Vel_c/44_PGV.his
+6 text hist write 100 table 100
+6 text ;
+6 text ; apply dynamic boundaries at side boundaries and bottom boundary
+6 text ini xvel=0.0 yvel=0.0 xdisp=0.0 ydisp=0.0
+6 text ;
+6 text ; Velocity Time History
+6 text apply ff
+6 text attach aside from 1,1 to 1,32 bside from 81,1 to 81,32
+6 text attach aside from 82,1 to 82,21 bside from 81,32 to 81,52
+6 text attach aside from 244,1 to 244,10 bside from 277,1 to 277,10
+6 text ;fix y from 1,1 to 81,1
+6 text ;fix y from 1,1 to 1,32
+6 text ;fix y from 82,1 to 82,21
+6 text ;fix y from 244,1 to 244,10
+6 text ;fix y from 81,1 to 81,52
+6 text ;fix y from 277,1 to 277,10
+6 text apply xvel=0.01 hist table 100 i=1,81 j=1
+6 text apply yvel=0.0 i=1,81 j=1
+6 text ;
+6 text hist reset
+6 text history nstep 100
+6 text history 2 dytime
+6 text ;
+6 text ;
+6 text ;
+6 text ; bl tr moment
+6 text history 201 element 33 moment1
+6 text history 202 element 73 moment1
+6 text ; br tl
+6 text history 211 element 53 moment1
+6 text history 212 element 13 moment1
+6 text ;
+6 text history 101 xdisp i=192, j=21
+6 text history 102 ydisp i=192, j=21
+6 text history 103 xdisp i=182, j=71
+6 text history 104 ydisp i=192, j=61
+6 text ;
+6 text history 111 xdisp i=192, j=41
+6 text history 112 ydisp i=192, j=41
+6 text history 113 xdisp i=162, j=71
+6 text history 114 ydisp i=162, j=71
+6 text ;
+6 text ;
+6 text ;
+6 text ;
+6 text history 10 xdisp i=233 j=1
+6 text ;
+6 text history 40 ydisp i=233 j=1
+6 text ;
+6 text history 50 xaccel i=234 j=19
+6 text history 51 xaccel i=269 j=9
+6 text ;
+6 text history 60 xvel i=77 j=1
+6 text ;
+6 text set dydt = 0.00001
+6 text solve dytime = 45.89 ; set time of input motion
+6 text ;
+6 text ;
+6 text set hisfile=PGV_44/100.txt
+6 text hist write 100 vs 2
+6 text ;
+6 text set hisfile=PGV_44/0010_Xdis_233_1.txt
+6 text hist write 10 vs 2
+6 text set hisfile=PGV_44/0040_Ydis_233_1.txt
+6 text hist write 40 vs 2
+6 text set hisfile=PGV_44/0050_Xacc_234_19.txt
+6 text hist write 50 vs 2
+6 text set hisfile=PGV_44/0051_Xacc_269_9.txt
+6 text hist write 51 vs 2
+6 text set hisfile=PGV_44/0060_Xvel_77_1.txt
+6 text hist write 60 vs 2
+6 text ;
+6 text set hisfile=PGV_44/m_1.txt
+6 text hist write 201 vs 2
+6 text set hisfile=PGV_44/m_2.txt
+6 text hist write 202 vs 2
+6 text ;
+6 text set hisfile=PGV_44/m_3.txt
+6 text hist write 211 vs 2
+6 text set hisfile=PGV_44/m_4.txt
+6 text hist write 212 vs 2
+6 text ;
+6 text ;
+6 text set hisfile=PGV_44/x_1.txt
+6 text hist write 101 vs 2
+6 text set hisfile=PGV_44/y_1.txt
+6 text hist write 102 vs 2
+6 text set hisfile=PGV_44/x_2.txt
+6 text hist write 103 vs 2
+6 text set hisfile=PGV_44/y_2.txt
+6 text hist write 104 vs 2
+6 text ;
+6 text ;
+6 text set hisfile=PGV_44/x_3.txt
+6 text hist write 111 vs 2
+6 text set hisfile=PGV_44/y_3.txt
+6 text hist write 112 vs 2
+6 text set hisfile=PGV_44/x_4.txt
+6 text hist write 113 vs 2
+6 text set hisfile=PGV_44/y_4.txt
+6 text hist write 114 vs 2
+6 text ;
+6 text ;
 2 branch Pushover
 3 state
 4 file model_push.sav
