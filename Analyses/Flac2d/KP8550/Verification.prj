@@ -1,0 +1,196 @@
+0 header
+1 code FLAC 8.1
+1 source giic v2.20.533
+1 date Fri Jul 03 20:38:38 EEST 2026
+1 type giic-save
+1 rampcolor 4
+0 flac
+1 config
+2 axisym false
+2 gwflow false
+2 pstress false
+2 cppudm false
+2 ats false
+2 creep false
+2 dynamic true
+2 thermal false
+2 twophase false
+2 extra 0
+2 units 0
+2 struct false
+2 advanced false
+2 water false
+2 interface false
+2 gravity true
+2 excludereg false
+2 solvefos false
+0 plots
+1 plot 0
+2 display
+3 viewport
+4 center 45.590015,19.102226
+4 radius 53.597485
+4 orientation 0.0
+2 command plot pen bou syy
+2 name bou syy
+2 count 0
+1 plot 0
+2 display
+3 viewport
+4 center 67.81392,42.482082
+4 radius 66.31119
+4 orientation 0.0
+2 command plot pen bou sxx
+2 name bou sxx
+2 count 0
+1 plot 0
+2 display
+3 viewport
+4 center 44.441685,27.102205
+4 radius 47.147552
+4 orientation 0.0
+2 command plot pen bou vel
+2 name bou vel
+2 count 0
+1 plot 0
+2 display
+3 viewport
+4 center 33.805378,23.553747
+4 radius 33.922726
+4 orientation 0.0
+2 command plot pen bou gp number
+2 name bou gp number
+2 count 0
+1 plot 0
+2 display
+3 viewport
+4 autorange true
+2 command plot pen bou disp
+2 name bou disp
+2 count 0
+0 matlist
+1 class ground
+1 material B2
+2 model mohr
+2 property
+3 density 2000.0
+3 elastic_mod 1.29999992E8
+3 poisson_rat 0.29999992
+3 bulk_mod 1.0833328E8
+3 shear_mod 5.0E7
+3 cohesion 185000.0
+3 friction 1.0
+0 CppModels
+0 project tree
+1 title 
+1 notes
+1 tree
+2 state
+3 file initial-v.sav
+3 lastedit 1783096149242
+3 batch
+4 text config dynamic
+4 text gr 140 94
+4 text gen 0,0 0,47 70,47 70,0
+4 text group 'ground:B2'
+4 text model mohr group 'ground:B2'
+4 text prop density=2000.0 bulk=1.083333E8 shear=50e6 cohesion=185.0e3 friction=1.0 dilation=0.0 tension=0.0 group 'ground:B2'
+4 text fix x i=1
+4 text fix x y j=1
+4 text fix x i=141
+4 text set grav=10
+4 text initial syy -9.4e5 var 0,9.4e5
+4 text initial sxx -6.11e5 var 0,6.11e5
+4 text initial szz -6.11e5 var 0,6.11e5
+4 text history 999 unbalanced
+4 text solve elastic
+2 state
+3 file dynamic-v.sav
+3 lastedit 1783097526552
+3 batch
+4 text set mech on
+4 text set dyn=on
+4 text set dytime=0.0
+4 text set step 20000000
+4 text set large
+4 text set ncwrite 100
+4 text set overwrite on
+4 text ;
+4 text ;
+4 text set dy_damp rayl 0.01 4.5
+4 text ini dy_damp hyst sig3 1.0 -0.45 -1.1
+4 text ;
+4 text his read 100 ../Time-Histories/Acc_C/340_PGA.his
+4 text hist write 100 table 100
+4 text ;
+4 text ini xvel=0.0 yvel=0.0 xdisp=0.0 ydisp=0.0
+4 text ;
+4 text ;
+4 text ;
+4 text ; Velocity Time History
+4 text apply ff
+4 text attach aside from 1,1 to 1,95 bside from 141,1 to 141,95
+4 text fix y from 1,1 to 141,1
+4 text fix y from 1,1 to 1,95
+4 text fix y from 141,1 to 141,95
+4 text apply xvel=0.01 hist table 100 i=1,141 j=1
+4 text apply yvel=0.0 i=1,141 j=1
+4 text ;
+4 text ;
+4 text ;
+4 text hist reset
+4 text history nstep 150
+4 text history 2 dytime
+4 text ;
+4 text ;
+4 text history 10 xaccel i=70 j=1
+4 text history 20 xaccel i=70 j=95
+4 text ;
+4 text ;
+4 text set dydt = 1e-5
+4 text ;> solve dytime = 35.75
+4 text ; *** Bad geometry ... impossible to continue: zone  73,   2
+4 text ;
+4 text ;
+4 text set hisfile=Res-v/base.txt
+4 text hist write 10 vs 2
+4 text set hisfile=Res-v/top.txt
+4 text hist write 20 vs 2
+0 vgrid
+1 body
+2 text begin_body ''
+2 text set version 1.0
+2 text ; General:
+2 text set autozone on zones 30 aspect 1.0 minsize 3
+2 text set autobc 0
+2 text set markbound off
+2 text set gravity on
+2 text ; Points:
+2 text ; Sizes: (zones)
+2 text ; Ratios: (zone middle)
+2 text ; Blocks:
+2 text end_body
+0 vgeo
+1 geo
+2 text begin_geo '<no name>'
+2 text set version 1.0
+2 text ; General:
+2 text set autocorner on 30.0
+2 text ; Points: (0)
+2 text ; Edges:
+2 text end_geo
+0 vsketch
+1 geo
+2 text begin_geo '<no name>'
+2 text set version 1.0
+2 text ; General:
+2 text set autocorner off
+2 text ; Points: (0)
+2 text ; Edges:
+2 text end_geo
+0 notes
+0 fish
+1 file
+1 notes
+1 record
+0 eof
