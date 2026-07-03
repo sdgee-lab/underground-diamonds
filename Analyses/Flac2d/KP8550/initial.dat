@@ -1,0 +1,8 @@
+set grav=10
+set dyn off
+initial syy -9.4e5 var 0,9.4e5
+initial sxx -6.11e5 var 0,6.11e5
+initial szz -6.11e5 var 0,6.11e5
+;initial k0=0.65
+history 999 unbalanced
+solve elastic

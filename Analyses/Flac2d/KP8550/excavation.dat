@@ -1,0 +1,338 @@
+group 'null' region 212,14 99,1 120,1 141,1
+model null group 'null'
+group delete 'null'
+group 'null' region 180,46
+model null group 'null'
+group delete 'null'
+set=large
+struct node 1 grid 174,71
+struct node 2 grid 173,71
+struct node 3 grid 172,71
+struct node 4 grid 171,71
+struct node 5 grid 170,71
+struct node 6 grid 169,71
+struct node 7 grid 168,71
+struct node 8 grid 167,71
+struct node 9 grid 166,71
+struct node 10 grid 165,71
+struct node 11 grid 164,71
+struct node 12 grid 163,71
+struct node 13 grid 162,71
+struct node 14 grid 192,2
+struct node 15 grid 192,3
+struct node 16 grid 192,4
+struct node 17 grid 192,5
+struct node 18 grid 192,6
+struct node 19 grid 192,7
+struct node 20 grid 192,8
+struct node 21 grid 192,9
+struct node 22 grid 192,10
+struct node 23 grid 192,11
+struct node 24 grid 192,12
+struct node 25 grid 192,13
+struct node 26 grid 192,14
+struct node 27 grid 192,15
+struct node 28 grid 192,16
+struct node 29 grid 192,17
+struct node 30 grid 192,18
+struct node 31 grid 192,19
+struct node 32 grid 192,20
+struct node 33 grid 192,21
+struct node 34 grid 192,22
+struct node 35 grid 192,23
+struct node 36 grid 192,24
+struct node 37 grid 192,25
+struct node 38 grid 192,26
+struct node 39 grid 192,27
+struct node 40 grid 192,28
+struct node 41 grid 192,29
+struct node 42 grid 192,30
+struct node 43 grid 192,31
+struct node 44 grid 192,32
+struct node 45 grid 192,33
+struct node 46 grid 192,34
+struct node 47 grid 192,35
+struct node 48 grid 192,36
+struct node 49 grid 192,37
+struct node 50 grid 192,38
+struct node 51 grid 192,39
+struct node 52 grid 192,40
+struct node 53 grid 192,41
+struct node 54 grid 192,42
+struct node 55 grid 192,43
+struct node 56 grid 192,44
+struct node 57 grid 192,45
+struct node 58 grid 192,46
+struct node 59 grid 192,47
+struct node 60 grid 192,48
+struct node 61 grid 192,49
+struct node 62 grid 192,50
+struct node 63 grid 192,51
+struct node 64 grid 192,52
+struct node 65 grid 192,53
+struct node 66 grid 192,54
+struct node 67 grid 192,55
+struct node 68 grid 192,56
+struct node 69 grid 192,57
+struct node 70 grid 192,58
+struct node 71 grid 192,59
+struct node 72 grid 192,60
+struct node 73 grid 192,61
+struct node 74 grid 181,71
+struct node 75 grid 180,71
+struct node 76 grid 179,71
+struct node 77 grid 178,71
+struct node 78 grid 177,71
+struct node 79 grid 176,71
+struct node 80 grid 175,71
+struct node 81 grid 237,1
+struct node 82 grid 236,1
+struct node 83 grid 235,1
+struct node 84 grid 234,1
+struct node 85 grid 233,1
+struct node 86 grid 232,1
+struct node 87 grid 231,1
+struct node 88 grid 230,1
+struct node 89 grid 229,1
+struct node 90 grid 228,1
+struct node 91 grid 227,1
+struct node 92 grid 226,1
+struct node 93 grid 225,1
+struct node 94 grid 224,1
+struct node 95 grid 223,1
+struct node 96 grid 118,11
+struct node 97 grid 117,11
+struct node 98 grid 116,11
+struct node 99 grid 115,11
+struct node 100 grid 114,11
+struct node 101 grid 113,11
+struct node 102 grid 112,11
+struct node 103 grid 111,11
+struct node 104 grid 110,11
+struct node 105 grid 109,11
+struct node 106 grid 108,11
+struct node 107 grid 107,11
+struct node 108 grid 106,11
+struct node 109 grid 105,11
+struct node 110 grid 104,11
+struct node 111 grid 103,11
+struct node 112 grid 102,11
+struct node 113 grid 101,11
+struct node 114 grid 100,11
+struct node 115 grid 99,11
+struct node 116 grid 139,11
+struct node 117 grid 138,11
+struct node 118 grid 137,11
+struct node 119 grid 136,11
+struct node 120 grid 135,11
+struct node 121 grid 134,11
+struct node 122 grid 133,11
+struct node 123 grid 132,11
+struct node 124 grid 131,11
+struct node 125 grid 130,11
+struct node 126 grid 129,11
+struct node 127 grid 128,11
+struct node 128 grid 127,11
+struct node 129 grid 126,11
+struct node 130 grid 125,11
+struct node 131 grid 124,11
+struct node 132 grid 123,11
+struct node 133 grid 122,11
+struct node 134 grid 121,11
+struct node 135 grid 120,11
+struct node 136 grid 160,11
+struct node 137 grid 159,11
+struct node 138 grid 158,11
+struct node 139 grid 157,11
+struct node 140 grid 156,11
+struct node 141 grid 155,11
+struct node 142 grid 154,11
+struct node 143 grid 153,11
+struct node 144 grid 152,11
+struct node 145 grid 151,11
+struct node 146 grid 150,11
+struct node 147 grid 149,11
+struct node 148 grid 148,11
+struct node 149 grid 147,11
+struct node 150 grid 146,11
+struct node 151 grid 145,11
+struct node 152 grid 144,11
+struct node 153 grid 143,11
+struct node 154 grid 142,11
+struct node 155 grid 141,11
+struct node 156 grid 242,1
+struct node 157 grid 241,1
+struct node 158 grid 240,1
+struct node 159 grid 239,1
+struct node 160 grid 238,1
+struct liner begin node 1 end node 2 seg 1 prop 5001
+struct liner begin node 2 end node 3 seg 1 prop 5001
+struct liner begin node 3 end node 4 seg 1 prop 5001
+struct liner begin node 4 end node 5 seg 1 prop 5001
+struct liner begin node 5 end node 6 seg 1 prop 5001
+struct liner begin node 6 end node 7 seg 1 prop 5001
+struct liner begin node 7 end node 8 seg 1 prop 5001
+struct liner begin node 8 end node 9 seg 1 prop 5001
+struct liner begin node 9 end node 10 seg 1 prop 5001
+struct liner begin node 10 end node 11 seg 1 prop 5001
+struct liner begin node 11 end node 12 seg 1 prop 5001
+struct liner begin node 12 end node 13 seg 1 prop 5001
+struct liner begin node 13 end node 14 seg 1 prop 5001
+struct liner begin node 14 end node 15 seg 1 prop 5001
+struct liner begin node 15 end node 16 seg 1 prop 5001
+struct liner begin node 16 end node 17 seg 1 prop 5001
+struct liner begin node 17 end node 18 seg 1 prop 5001
+struct liner begin node 18 end node 19 seg 1 prop 5001
+struct liner begin node 19 end node 20 seg 1 prop 5001
+struct liner begin node 20 end node 21 seg 1 prop 5001
+struct liner begin node 21 end node 22 seg 1 prop 5001
+struct liner begin node 22 end node 23 seg 1 prop 5001
+struct liner begin node 23 end node 24 seg 1 prop 5001
+struct liner begin node 24 end node 25 seg 1 prop 5001
+struct liner begin node 25 end node 26 seg 1 prop 5001
+struct liner begin node 26 end node 27 seg 1 prop 5001
+struct liner begin node 27 end node 28 seg 1 prop 5001
+struct liner begin node 28 end node 29 seg 1 prop 5001
+struct liner begin node 29 end node 30 seg 1 prop 5001
+struct liner begin node 30 end node 31 seg 1 prop 5001
+struct liner begin node 31 end node 32 seg 1 prop 5001
+struct liner begin node 32 end node 33 seg 1 prop 5001
+struct liner begin node 33 end node 34 seg 1 prop 5001
+struct liner begin node 34 end node 35 seg 1 prop 5001
+struct liner begin node 35 end node 36 seg 1 prop 5001
+struct liner begin node 36 end node 37 seg 1 prop 5001
+struct liner begin node 37 end node 38 seg 1 prop 5001
+struct liner begin node 38 end node 39 seg 1 prop 5001
+struct liner begin node 39 end node 40 seg 1 prop 5001
+struct liner begin node 40 end node 41 seg 1 prop 5001
+struct liner begin node 41 end node 42 seg 1 prop 5001
+struct liner begin node 42 end node 43 seg 1 prop 5001
+struct liner begin node 43 end node 44 seg 1 prop 5001
+struct liner begin node 44 end node 45 seg 1 prop 5001
+struct liner begin node 45 end node 46 seg 1 prop 5001
+struct liner begin node 46 end node 47 seg 1 prop 5001
+struct liner begin node 47 end node 48 seg 1 prop 5001
+struct liner begin node 48 end node 49 seg 1 prop 5001
+struct liner begin node 49 end node 50 seg 1 prop 5001
+struct liner begin node 50 end node 51 seg 1 prop 5001
+struct liner begin node 51 end node 52 seg 1 prop 5001
+struct liner begin node 52 end node 53 seg 1 prop 5001
+struct liner begin node 53 end node 54 seg 1 prop 5001
+struct liner begin node 54 end node 55 seg 1 prop 5001
+struct liner begin node 55 end node 56 seg 1 prop 5001
+struct liner begin node 56 end node 57 seg 1 prop 5001
+struct liner begin node 57 end node 58 seg 1 prop 5001
+struct liner begin node 58 end node 59 seg 1 prop 5001
+struct liner begin node 59 end node 60 seg 1 prop 5001
+struct liner begin node 60 end node 61 seg 1 prop 5001
+struct liner begin node 61 end node 62 seg 1 prop 5001
+struct liner begin node 62 end node 63 seg 1 prop 5001
+struct liner begin node 63 end node 64 seg 1 prop 5001
+struct liner begin node 64 end node 65 seg 1 prop 5001
+struct liner begin node 65 end node 66 seg 1 prop 5001
+struct liner begin node 66 end node 67 seg 1 prop 5001
+struct liner begin node 67 end node 68 seg 1 prop 5001
+struct liner begin node 68 end node 69 seg 1 prop 5001
+struct liner begin node 69 end node 70 seg 1 prop 5001
+struct liner begin node 70 end node 71 seg 1 prop 5001
+struct liner begin node 71 end node 72 seg 1 prop 5001
+struct liner begin node 72 end node 73 seg 1 prop 5001
+struct liner begin node 73 end node 74 seg 1 prop 5001
+struct liner begin node 74 end node 75 seg 1 prop 5001
+struct liner begin node 75 end node 76 seg 1 prop 5001
+struct liner begin node 76 end node 77 seg 1 prop 5001
+struct liner begin node 77 end node 78 seg 1 prop 5001
+struct liner begin node 78 end node 79 seg 1 prop 5001
+struct liner begin node 79 end node 80 seg 1 prop 5001
+struct liner begin node 80 end node 1 seg 1 prop 5001
+struct liner begin node 81 end node 82 seg 1 prop 5001
+struct liner begin node 82 end node 83 seg 1 prop 5001
+struct liner begin node 83 end node 84 seg 1 prop 5001
+struct liner begin node 84 end node 85 seg 1 prop 5001
+struct liner begin node 85 end node 86 seg 1 prop 5001
+struct liner begin node 86 end node 87 seg 1 prop 5001
+struct liner begin node 87 end node 88 seg 1 prop 5001
+struct liner begin node 88 end node 89 seg 1 prop 5001
+struct liner begin node 89 end node 90 seg 1 prop 5001
+struct liner begin node 90 end node 91 seg 1 prop 5001
+struct liner begin node 91 end node 92 seg 1 prop 5001
+struct liner begin node 92 end node 93 seg 1 prop 5001
+struct liner begin node 93 end node 94 seg 1 prop 5001
+struct liner begin node 94 end node 95 seg 1 prop 5001
+struct liner begin node 95 end node 96 seg 1 prop 5001
+struct liner begin node 96 end node 97 seg 1 prop 5001
+struct liner begin node 97 end node 98 seg 1 prop 5001
+struct liner begin node 98 end node 99 seg 1 prop 5001
+struct liner begin node 99 end node 100 seg 1 prop 5001
+struct liner begin node 100 end node 101 seg 1 prop 5001
+struct liner begin node 101 end node 102 seg 1 prop 5001
+struct liner begin node 102 end node 103 seg 1 prop 5001
+struct liner begin node 103 end node 104 seg 1 prop 5001
+struct liner begin node 104 end node 105 seg 1 prop 5001
+struct liner begin node 105 end node 106 seg 1 prop 5001
+struct liner begin node 106 end node 107 seg 1 prop 5001
+struct liner begin node 107 end node 108 seg 1 prop 5001
+struct liner begin node 108 end node 109 seg 1 prop 5001
+struct liner begin node 109 end node 110 seg 1 prop 5001
+struct liner begin node 110 end node 111 seg 1 prop 5001
+struct liner begin node 111 end node 112 seg 1 prop 5001
+struct liner begin node 112 end node 113 seg 1 prop 5001
+struct liner begin node 113 end node 114 seg 1 prop 5001
+struct liner begin node 114 end node 115 seg 1 prop 5001
+struct liner begin node 115 end node 116 seg 1 prop 5001
+struct liner begin node 116 end node 117 seg 1 prop 5001
+struct liner begin node 117 end node 118 seg 1 prop 5001
+struct liner begin node 118 end node 119 seg 1 prop 5001
+struct liner begin node 119 end node 120 seg 1 prop 5001
+struct liner begin node 120 end node 121 seg 1 prop 5001
+struct liner begin node 121 end node 122 seg 1 prop 5001
+struct liner begin node 122 end node 123 seg 1 prop 5001
+struct liner begin node 123 end node 124 seg 1 prop 5001
+struct liner begin node 124 end node 125 seg 1 prop 5001
+struct liner begin node 125 end node 126 seg 1 prop 5001
+struct liner begin node 126 end node 127 seg 1 prop 5001
+struct liner begin node 127 end node 128 seg 1 prop 5001
+struct liner begin node 128 end node 129 seg 1 prop 5001
+struct liner begin node 129 end node 130 seg 1 prop 5001
+struct liner begin node 130 end node 131 seg 1 prop 5001
+struct liner begin node 131 end node 132 seg 1 prop 5001
+struct liner begin node 132 end node 133 seg 1 prop 5001
+struct liner begin node 133 end node 134 seg 1 prop 5001
+struct liner begin node 134 end node 135 seg 1 prop 5001
+struct liner begin node 135 end node 136 seg 1 prop 5001
+struct liner begin node 136 end node 137 seg 1 prop 5001
+struct liner begin node 137 end node 138 seg 1 prop 5001
+struct liner begin node 138 end node 139 seg 1 prop 5001
+struct liner begin node 139 end node 140 seg 1 prop 5001
+struct liner begin node 140 end node 141 seg 1 prop 5001
+struct liner begin node 141 end node 142 seg 1 prop 5001
+struct liner begin node 142 end node 143 seg 1 prop 5001
+struct liner begin node 143 end node 144 seg 1 prop 5001
+struct liner begin node 144 end node 145 seg 1 prop 5001
+struct liner begin node 145 end node 146 seg 1 prop 5001
+struct liner begin node 146 end node 147 seg 1 prop 5001
+struct liner begin node 147 end node 148 seg 1 prop 5001
+struct liner begin node 148 end node 149 seg 1 prop 5001
+struct liner begin node 149 end node 150 seg 1 prop 5001
+struct liner begin node 150 end node 151 seg 1 prop 5001
+struct liner begin node 151 end node 152 seg 1 prop 5001
+struct liner begin node 152 end node 153 seg 1 prop 5001
+struct liner begin node 153 end node 154 seg 1 prop 5001
+struct liner begin node 154 end node 155 seg 1 prop 5001
+struct liner begin node 155 end node 156 seg 1 prop 5001
+struct liner begin node 156 end node 157 seg 1 prop 5001
+struct liner begin node 157 end node 158 seg 1 prop 5001
+struct liner begin node 158 end node 159 seg 1 prop 5001
+struct liner begin node 159 end node 160 seg 1 prop 5001
+struct liner begin node 160 end node 81 seg 1 prop 5001
+struct prop 5001
+struct prop 5001 e 3E10 area 0.3 I 0.00225 thickness 0.3 pratio 0.2
+apply relax nsteps 30 rstop 0.0 from 179,71 to 162,71
+apply relax nsteps 30 rstop 0.0 from 192,1 to 192,61
+apply relax nsteps 30 rstop 0.0 from 182,71 to 179,71
+apply relax nsteps 30 rstop 0.0 from 231,1 to 223,1
+apply relax nsteps 30 rstop 0.0 from 119,11 to 99,11
+apply relax nsteps 30 rstop 0.0 from 140,11 to 120,11
+apply relax nsteps 30 rstop 0.0 from 161,11 to 141,11
+apply relax nsteps 30 rstop 0.0 from 243,1 to 231,1
+solve
