@@ -1,0 +1,4 @@
+call test1.dat
+save test1.sav
+new call test2.dat
+save test2.sav
