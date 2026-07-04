@@ -1,7 +1,7 @@
 0 header
 1 code FLAC 8.1
 1 source giic v2.20.533
-1 date Sat Jul 04 20:41:00 EEST 2026
+1 date Sat Jul 04 21:14:38 EEST 2026
 1 type giic-save
 1 rampcolor 4
 0 flac
@@ -592,11 +592,24 @@
 5 text apply relax nsteps 30 rstop 0.0 from 161,11 to 141,11
 5 text apply relax nsteps 30 rstop 0.0 from 243,1 to 231,1
 5 text solve
-3 state
-4 file batch1.sav
-4 lastedit 1783186860515
-4 batch
-5 text call batch1.dat
+3 branch Branch for batch1.sav
+4 state
+5 file batch1.sav
+5 lastedit 1783186860690
+5 batch
+6 text call batch1.dat
+3 branch Branch for batch2.sav
+4 state
+5 file batch2.sav
+5 lastedit 0
+5 batch
+6 text call batch2.dat
+3 branch Branch for batch3.sav
+4 state
+5 file batch3.sav
+5 lastedit 0
+5 batch
+6 text call batch3.dat
 2 branch Pushover
 3 state
 4 file model_push.sav
