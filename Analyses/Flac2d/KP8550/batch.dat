@@ -1,9 +1,0 @@
-call PGV_35.dat
-save PGV_35.save
-restore excavation.sav
-call PGV_44.dat
-save PGV_44.save
-restore excavation.sav
-call PGV_76.dat
-save PGV_76.save
-restore excavation.sav

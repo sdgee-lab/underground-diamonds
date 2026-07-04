@@ -1,7 +1,7 @@
 0 header
 1 code FLAC 8.1
 1 source giic v2.20.533
-1 date Fri Jul 03 20:38:38 EEST 2026
+1 date Sat Jul 04 20:25:13 EEST 2026
 1 type giic-save
 1 rampcolor 4
 0 flac
@@ -46,8 +46,8 @@
 1 plot 0
 2 display
 3 viewport
-4 center 44.441685,27.102205
-4 radius 47.147552
+4 center 34.59032,7.8607645
+4 radius 60.005955
 4 orientation 0.0
 2 command plot pen bou vel
 2 name bou vel
@@ -55,8 +55,8 @@
 1 plot 0
 2 display
 3 viewport
-4 center 33.805378,23.553747
-4 radius 33.922726
+4 center 40.16834,12.750801
+4 radius 29.907381
 4 orientation 0.0
 2 command plot pen bou gp number
 2 name bou gp number
@@ -64,9 +64,32 @@
 1 plot 0
 2 display
 3 viewport
-4 autorange true
+4 center 37.155098,18.539188
+4 radius 38.087467
+4 orientation 0.0
 2 command plot pen bou disp
 2 name bou disp
+2 count 0
+1 plot 1
+2 display
+3 viewport
+4 autorange true
+2 command plot pen table 100
+2 name table 100
+2 count 0
+1 plot 2
+2 display
+3 viewport
+4 autorange true
+2 command plot pen hist 10
+2 name hist 10
+2 count 0
+1 plot 2
+2 display
+3 viewport
+4 autorange true
+2 command plot pen hist 20
+2 name hist 20
 2 count 0
 0 matlist
 1 class ground
@@ -104,58 +127,109 @@
 4 text initial szz -6.11e5 var 0,6.11e5
 4 text history 999 unbalanced
 4 text solve elastic
-2 state
-3 file dynamic-v.sav
-3 lastedit 1783097526552
-3 batch
-4 text set mech on
-4 text set dyn=on
-4 text set dytime=0.0
-4 text set step 20000000
-4 text set large
-4 text set ncwrite 100
-4 text set overwrite on
-4 text ;
-4 text ;
-4 text set dy_damp rayl 0.01 4.5
-4 text ini dy_damp hyst sig3 1.0 -0.45 -1.1
-4 text ;
-4 text his read 100 ../Time-Histories/Acc_C/340_PGA.his
-4 text hist write 100 table 100
-4 text ;
-4 text ini xvel=0.0 yvel=0.0 xdisp=0.0 ydisp=0.0
-4 text ;
-4 text ;
-4 text ;
-4 text ; Velocity Time History
-4 text apply ff
-4 text attach aside from 1,1 to 1,95 bside from 141,1 to 141,95
-4 text fix y from 1,1 to 141,1
-4 text fix y from 1,1 to 1,95
-4 text fix y from 141,1 to 141,95
-4 text apply xvel=0.01 hist table 100 i=1,141 j=1
-4 text apply yvel=0.0 i=1,141 j=1
-4 text ;
-4 text ;
-4 text ;
-4 text hist reset
-4 text history nstep 150
-4 text history 2 dytime
-4 text ;
-4 text ;
-4 text history 10 xaccel i=70 j=1
-4 text history 20 xaccel i=70 j=95
-4 text ;
-4 text ;
-4 text set dydt = 1e-5
-4 text ;> solve dytime = 35.75
-4 text ; *** Bad geometry ... impossible to continue: zone  73,   2
-4 text ;
-4 text ;
-4 text set hisfile=Res-v/base.txt
-4 text hist write 10 vs 2
-4 text set hisfile=Res-v/top.txt
-4 text hist write 20 vs 2
+2 branch Branch for dynamic-v.sav
+3 state
+4 file dynamic-v.sav
+4 lastedit 1783175400133
+4 batch
+5 text set mech on
+5 text set dyn=on
+5 text set dytime=0.0
+5 text set step 20000000
+5 text set large
+5 text set ncwrite 100
+5 text set overwrite on
+5 text ;
+5 text ;
+5 text set dy_damp rayl 0.01 4.5
+5 text ini dy_damp hyst sig3 1.0 -0.45 -1.1
+5 text ;
+5 text his read 100 ../Time-Histories/Acc_C/167_PGA.his
+5 text hist write 100 table 100
+5 text ;
+5 text ini xvel=0.0 yvel=0.0 xdisp=0.0 ydisp=0.0
+5 text ;
+5 text ;
+5 text ;
+5 text ; Velocity Time History
+5 text apply ff
+5 text attach aside from 1,1 to 1,95 bside from 141,1 to 141,95
+5 text ;fix y from 1,1 to 141,1
+5 text ;fix y from 1,1 to 1,95
+5 text ;fix y from 141,1 to 141,95
+5 text apply xvel=0.01 hist table 100 i=1,141 j=1
+5 text apply yvel=0.0 i=1,141 j=1
+5 text ;
+5 text ;
+5 text ;
+5 text hist reset
+5 text history nstep 150
+5 text history 2 dytime
+5 text ;
+5 text ;
+5 text history 10 xaccel i=70 j=1
+5 text history 15 xaccel i =30 j=1
+5 text history 20 xaccel i=70 j=95
+5 text ;
+5 text ;
+5 text set dydt = 1e-5
+5 text solve dytime = 35.535
+5 text ;
+5 text set hisfile=Res-v/base.txt
+5 text hist write 10 vs 2
+5 text set hisfile=Res-v/top.txt
+5 text hist write 20 vs 2
+2 branch clone_Branch for dynamic-v.sav
+3 state
+4 file clone_dynamic-v.sav
+4 lastedit 1783185440869
+4 batch
+5 text set mech on
+5 text set dyn=on
+5 text set dytime=0.0
+5 text set step 20000000
+5 text set large
+5 text set ncwrite 100
+5 text set overwrite on
+5 text ;
+5 text ;
+5 text set dy_damp rayl 0.01 4.5
+5 text ini dy_damp hyst sig3 1.0 -0.45 -1.1
+5 text ;
+5 text his read 100 ../Time-Histories/Acc_C/167_PGA.his
+5 text hist write 100 table 100
+5 text ;
+5 text ini xvel=0.0 yvel=0.0 xdisp=0.0 ydisp=0.0
+5 text ;
+5 text ;
+5 text ;
+5 text ; Acceleration Time History
+5 text apply ff
+5 text attach aside from 1,1 to 1,95 bside from 141,1 to 141,95
+5 text ;fix y from 1,1 to 141,1
+5 text ;fix y from 1,1 to 1,95
+5 text ;fix y from 141,1 to 141,95
+5 text apply xacc=0.01 hist table 100 j=1
+5 text apply yacc=0.0 j=1
+5 text ;
+5 text ;
+5 text ;
+5 text hist reset
+5 text history nstep 150
+5 text history 2 dytime
+5 text ;
+5 text ;
+5 text history 10 xaccel i=70 j=1
+5 text history 20 xaccel i=70 j=95
+5 text ;
+5 text ;
+5 text set dydt = 1e-5
+5 text solve dytime = 35.535
+5 text ;
+5 text set hisfile=Res-v/base.txt
+5 text hist write 10 vs 2
+5 text set hisfile=Res-v/top.txt
+5 text hist write 20 vs 2
 0 vgrid
 1 body
 2 text begin_body ''
