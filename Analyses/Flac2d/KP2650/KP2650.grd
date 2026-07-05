@@ -1,0 +1,273 @@
+; FLAC vgrid, file:KP2650.grd
+begin_body '<no name>'
+set version 1.0
+; General:
+set autozone off zones 30 aspect 1.0 minsize 3
+set autobc 0
+set markbound off
+set gravity on
+; Points:
+set p0 -40.0,-25.0
+set p1 -11.5,-25.0
+set p2 -2.5,-25.0
+set p3 2.5,-25.0
+set p4 11.5,-25.0
+set p5 40.0,-25.0
+set p6 -40.0,-8.8
+set p7 -11.5,-8.8
+set p8 -2.5,-8.8
+set p9 2.5,-8.799999
+set p10 11.5,-8.800001
+set p11 40.0,-8.8
+set p12 -8.14805,-7.0716386
+set p13 -7.8708534,-7.170821
+set p14 -7.5852714,-7.242356
+set p15 -7.2940507,-7.2855544
+set p16 -7.0,-7.3
+set p17 -6.7059493,-7.2855544
+set p18 -6.4147286,-7.242356
+set p19 -6.129146,-7.170821
+set p20 -5.851949,-7.0716386
+set p21 5.851949,-7.0716386
+set p22 6.1291466,-7.170821
+set p23 6.4147286,-7.242356
+set p24 6.7059493,-7.2855544
+set p25 7.0,-7.3
+set p26 7.2940507,-7.2855544
+set p27 7.5852714,-7.242356
+set p28 7.870854,-7.170821
+set p29 8.14805,-7.0716386
+set p30 -8.90318,-6.6190314
+set p31 -8.666711,-6.794409
+set p32 -8.41419,-6.945764
+set p33 -5.5858097,-6.945764
+set p34 -5.33329,-6.7944093
+set p35 -5.09682,-6.6190314
+set p36 5.09682,-6.6190314
+set p37 5.3332887,-6.794409
+set p38 5.5858097,-6.945764
+set p39 8.41419,-6.945764
+set p40 8.66671,-6.7944093
+set p41 8.90318,-6.6190314
+set p42 -9.319032,-6.20318
+set p43 -9.121321,-6.4213204
+set p44 -9.121321,-6.421321
+set p45 -4.8786798,-6.421321
+set p46 -4.6809683,-6.20318
+set p47 4.6809683,-6.20318
+set p48 4.8786798,-6.4213204
+set p49 9.12132,-6.421321
+set p50 9.319032,-6.20318
+set p51 -9.494409,-5.966711
+set p52 -4.5055914,-5.966711
+set p53 4.5055914,-5.966711
+set p54 9.494409,-5.966711
+set p55 -9.771639,-5.4480505
+set p56 -9.645763,-5.7141905
+set p57 -8.0,-5.3
+set p58 -6.0,-5.3
+set p59 -4.354236,-5.71419
+set p60 -4.2283616,-5.4480505
+set p61 4.2283616,-5.4480505
+set p62 4.354236,-5.7141905
+set p63 6.0,-5.3
+set p64 8.0,-5.3
+set p65 9.645764,-5.71419
+set p66 9.771639,-5.4480505
+set p67 -9.942356,-4.885271
+set p68 -9.870821,-5.170854
+set p69 -4.129179,-5.1708546
+set p70 -4.057644,-4.885271
+set p71 4.057644,-4.885271
+set p72 4.129179,-5.170854
+set p73 9.870821,-5.1708546
+set p74 9.942356,-4.885271
+set p75 -9.985554,-4.5940514
+set p76 -4.014446,-4.594052
+set p77 4.014446,-4.5940514
+set p78 9.985554,-4.594052
+set p79 -10.0,-4.3000007
+set p80 -9.985554,-4.005949
+set p81 -4.0,-4.3
+set p82 -4.014446,-4.0059485
+set p83 4.014446,-4.005949
+set p84 4.0,-4.3000007
+set p85 10.0,-4.3
+set p86 9.985554,-4.0059485
+set p87 -9.942356,-3.7147293
+set p88 -4.0576444,-3.7147293
+set p89 4.0576444,-3.7147293
+set p90 9.942356,-3.7147293
+set p91 -9.771639,-3.1519496
+set p92 -9.870821,-3.429146
+set p93 -8.0,-3.3
+set p94 -6.0,-3.3
+set p95 -4.129179,-3.429146
+set p96 -4.2283616,-3.15195
+set p97 4.129179,-3.429146
+set p98 4.2283616,-3.1519496
+set p99 6.0,-3.3
+set p100 8.0,-3.3
+set p101 9.870821,-3.429146
+set p102 9.771639,-3.15195
+set p103 -9.645763,-2.8858097
+set p104 -9.494409,-2.6332898
+set p105 -4.5055914,-2.6332896
+set p106 -4.354236,-2.88581
+set p107 4.3542366,-2.8858097
+set p108 4.505591,-2.6332898
+set p109 9.645763,-2.88581
+set p110 9.494409,-2.6332896
+set p111 -9.319032,-2.3968205
+set p112 -9.121321,-2.17868
+set p113 -9.12132,-2.1786795
+set p114 -4.6809688,-2.3968203
+set p115 -4.8786798,-2.1786797
+set p116 4.8786798,-2.17868
+set p117 4.6809688,-2.3968205
+set p118 9.121321,-2.1786795
+set p119 9.319032,-2.3968203
+set p120 -8.666711,-1.8055912
+set p121 -8.90318,-1.9809687
+set p122 -5.333289,-1.8055913
+set p123 -5.0968204,-1.9809688
+set p124 5.0968204,-1.9809687
+set p125 5.3332896,-1.8055912
+set p126 8.666711,-1.8055913
+set p127 8.90318,-1.9809688
+set p128 -8.14805,-1.5283616
+set p129 -7.8708544,-1.4291792
+set p130 -8.41419,-1.6542362
+set p131 -7.0,-1.3000002
+set p132 -7.294051,-1.314446
+set p133 -7.585271,-1.3576443
+set p134 -6.7059484,-1.314446
+set p135 -6.414729,-1.3576443
+set p136 -6.129146,-1.4291792
+set p137 -5.8519497,-1.5283616
+set p138 -5.5858097,-1.6542364
+set p139 5.58581,-1.6542362
+set p140 5.8519497,-1.5283616
+set p141 6.705949,-1.314446
+set p142 6.1291456,-1.4291792
+set p143 6.414729,-1.3576443
+set p144 7.2940516,-1.314446
+set p145 7.585271,-1.3576443
+set p146 7.0,-1.3000002
+set p147 8.41419,-1.6542364
+set p148 7.870854,-1.4291792
+set p149 8.14805,-1.5283616
+set p150 -40.0,0.2
+set p151 -11.5,0.20000076
+set p152 -2.5,0.20000076
+set p153 -2.5,0.2
+set p154 2.5,0.20000005
+set p155 11.5,0.20000002
+set p156 40.0,0.2
+set p157 -40.0,3.5
+set p158 -11.5,3.4999998
+set p159 -2.5,3.5
+set p160 2.5,3.4999971
+set p161 11.5,3.500001
+set p162 40.0,3.5
+set p163 -40.0,15.0
+set p164 -11.5,15.0
+set p165 -2.5,15.0
+set p166 2.5,15.000001
+set p167 11.5,14.999999
+set p168 40.0,15.0
+set p169 -40.0,19.4
+set p170 -11.5,19.4
+set p171 -2.5,19.4
+set p172 2.5,19.4
+set p173 11.5,19.4
+set p174 40.0,19.4
+; Sizes: (zones)
+set n1 21
+set n2 21
+set n3 16
+set n4 5
+set n5 16
+set n6 7
+set n7 9
+set n8 7
+set n9 9
+set n10 5
+set n11 12
+set n12 4
+set n13 16
+set n14 15
+; Ratios: (zone middle)
+set r1 0.5
+set r2 0.5
+set r3 0.5
+set r4 0.5
+set r5 0.5
+set r6 0.5
+set r7 0.5
+set r8 0.5
+set r9 0.5
+set r10 0.5
+set r11 0.5
+set r12 0.5
+set r13 0.5
+set r14 0.5
+; Zone materials: (SI: m-kg-s system units)
+set z1 name 'tunnel' model mohr prop density=0.0 bulk=0 shear=0 cohesion=0.0 friction=0.0 dilation=0.0 tension=0.0
+set z2 name 'Man-Made Deposits:Man1' model mohr prop density=1800.0 bulk=3.055555E7 shear=2.291667E7 cohesion=5000.0 friction=30000.0 dilation=0.0 tension=0.0
+set z3 name 'Clay:A2B' model mohr prop density=2000.0 bulk=6.666666E8 shear=1.5E8 cohesion=200000.0 friction=0.0 dilation=0.0 tension=0.0
+set z4 name 'Clay:A2C' model mohr prop density=2000.0 bulk=4.8125E8 shear=2E8 cohesion=350000.0 friction=0.0 dilation=0.0 tension=0.0
+; Blocks:
+set b1 point p0 p6 p7 p1 size n1,n14 mult 1,1 ratio r1,r14 group 4
+set b2 point p1 p7 p8 p2 size n5,n14 mult 1,1 ratio r5,r14 group 4
+set b3 point p2 p8 p9 p3 size n4,n14 mult 1,1 ratio r4,r14 group 4
+set b4 point p3 p9 p10 p4 size n3,n14 mult 1,1 ratio r3,r14 group 4
+set b5 point p4 p10 p11 p5 size n2,n14 mult 1,1 ratio r2,r14 group 4
+set b6 point p6 p150 p151 p7 size n1,n13 mult 1,1 ratio r1,r13 group 4
+set b7 point p7 p44 p45 p8 size n5,n6 mult 1,1 ratio r5,r-6 group 4
+set b8 point p7 p151 p113 p44 size n6,n13 mult 1,1 ratio r-6,r13 group 4
+set b9 point p8 p152 p154 p9 size n4,n13 mult 1,1 ratio r4,r13 group 4
+set b10 point p45 p115 p152 p8 size n6,n13 mult 1,1 ratio r6,r13 group 4
+set b11 point p9 p48 p49 p10 size n3,n8 mult 1,1 ratio r3,r-8 group 4
+set b12 point p9 p154 p116 p48 size n8,n13 mult 1,1 ratio r-8,r13 group 4
+set b13 point p10 p155 p156 p11 size n2,n13 mult 1,1 ratio r2,r13 group 4
+set b14 point p49 p118 p155 p10 size n8,n13 mult 1,1 ratio r8,r13 group 4
+set b15 point p44 p113 p93 p57 size n7,n13 mult 1,1 ratio r-7,r13 group 4
+set b16 point p44 p57 p58 p45 size n5,n7 mult 1,1 ratio r5,r-7 group 4
+set b17 point p58 p94 p115 p45 size n7,n13 mult 1,1 ratio r7,r13 group 4
+set b18 point p48 p116 p99 p63 size n9,n13 mult 1,1 ratio r-9,r13 group 4
+set b19 point p48 p63 p64 p49 size n3,n9 mult 1,1 ratio r3,r-9 group 4
+set b20 point p64 p100 p118 p49 size n9,n13 mult 1,1 ratio r9,r13 group 4
+set b21 point p57 p93 p94 p58 size n5,n13 mult 1,1 ratio r5,r13 group 4
+set b22 point p63 p99 p100 p64 size n3,n13 mult 1,1 ratio r3,r13 group 4
+set b23 point p93 p113 p115 p94 size n5,n7 mult 1,1 ratio r5,r7 group 4
+set b24 point p99 p116 p118 p100 size n3,n9 mult 1,1 ratio r3,r9 group 4
+set b25 point p113 p151 p152 p115 size n5,n6 mult 1,1 ratio r5,r6 group 4
+set b26 point p116 p154 p155 p118 size n3,n8 mult 1,1 ratio r3,r8 group 4
+set b27 point p150 p157 p158 p151 size n1,n12 mult 1,1 ratio r1,r12 group 4
+set b28 point p151 p158 p159 p152 size n5,n12 mult 1,1 ratio r5,r12 group 4
+set b29 point p152 p159 p160 p154 size n4,n12 mult 1,1 ratio r4,r12 group 4
+set b30 point p154 p160 p161 p155 size n3,n12 mult 1,1 ratio r3,r12 group 4
+set b31 point p155 p161 p162 p156 size n2,n12 mult 1,1 ratio r2,r12 group 4
+set b32 point p157 p163 p164 p158 size n1,n11 mult 1,1 ratio r1,r11 group 3
+set b33 point p158 p164 p165 p159 size n5,n11 mult 1,1 ratio r5,r11 group 3
+set b34 point p159 p165 p166 p160 size n4,n11 mult 1,1 ratio r4,r11 group 3
+set b35 point p160 p166 p167 p161 size n3,n11 mult 1,1 ratio r3,r11 group 3
+set b36 point p161 p167 p168 p162 size n2,n11 mult 1,1 ratio r2,r11 group 3
+set b37 point p163 p169 p170 p164 size n1,n10 mult 1,1 ratio r1,r10 group 2
+set b38 point p164 p170 p171 p165 size n5,n10 mult 1,1 ratio r5,r10 group 2
+set b39 point p165 p171 p172 p166 size n4,n10 mult 1,1 ratio r4,r10 group 2
+set b40 point p166 p172 p173 p167 size n3,n10 mult 1,1 ratio r3,r10 group 2
+set b41 point p167 p173 p174 p168 size n2,n10 mult 1,1 ratio r2,r10 group 2
+; Edge polylines:
+set edge p44 p45 polyline p30 p31 p32 p12 p13 p14 p15 p16 p17 p18 p19 p20 p33 p34 p35
+set edge p44 p113 polyline p43 p42 p51 p56 p55 p68 p67 p75 p79 p80 p87 p92 p91 p103 p104 p111 p112
+set edge p8 p152 polyline p153
+set edge p45 p115 polyline p46 p52 p59 p60 p69 p70 p76 p81 p82 p88 p95 p96 p106 p105 p114
+set edge p48 p49 polyline p36 p37 p38 p21 p22 p23 p24 p25 p26 p27 p28 p29 p39 p40 p41
+set edge p48 p116 polyline p47 p53 p62 p61 p72 p71 p77 p84 p83 p89 p97 p98 p107 p108 p117
+set edge p49 p118 polyline p50 p54 p65 p66 p73 p74 p78 p85 p86 p90 p101 p102 p109 p110 p119
+set edge p113 p115 polyline p121 p120 p130 p128 p129 p133 p132 p131 p134 p135 p136 p137 p138 p122 p123
+set edge p116 p118 polyline p124 p125 p139 p140 p142 p143 p141 p146 p144 p145 p148 p149 p147 p126 p127
+; Grid special connections:
+end_body
