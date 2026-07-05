@@ -20,6 +20,9 @@ his read 100 ../Time-Histories/Vel_c/10_PGV.his
 hist write 100 table 100
 ;
 ;
+; apply dynamic boundaries at side boundaries and bottom boundary
+ini xvel=0.0 yvel=0.0 xdisp=0.0 ydisp=0.0
+;
 ; Velocity Time History
 apply ff
 attach aside from 1,1 to 1,9 bside from 83,1 to 83,9

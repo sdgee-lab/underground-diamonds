@@ -23,12 +23,13 @@ hist write 100 table 100
 ; apply dynamic boundaries at side boundaries and bottom boundary
 ini xvel=0.0 yvel=0.0 xdisp=0.0 ydisp=0.0
 ;
-attach aside from 1,1 to 1,16 bside from 83,1 to 83,16
-attach aside from 84,17 to 84,1 bside from 185,17 to 185,1
-attach aside from 385,13 to 385,1 bside from 384,17 to 384,5
-attach aside from 302,5 to 302,1 bside from 384,5 to 384,1
-attach aside from 445,6 to 445,1 bside from 511,6 to 511,1
-;
+; Velocity Time History
+apply ff
+attach aside from 1,1 to 1,9 bside from 83,1 to 83,9
+attach aside from 84,11 to 84,1 bside from 83,19 to 83,9
+attach aside from 268,1 to 268,5 bside from 251,18 to 251,22
+attach aside from 125,1 to 125,18 bside from 251,1 to 251,18
+attach aside from 303,1 to 303,9 bside from 370,1 to 370,9
 apply xvel=0.01 hist table 100 from 1,1 to 19,1
 apply xvel=0.01 hist table 100 from 20,1 to 36,1
 apply xvel=0.01 hist table 100 from 37,1 to 83,1
@@ -36,6 +37,9 @@ apply xvel=0.01 hist table 100 from 37,1 to 83,1
 apply yvel=0.0 from 1,1 to 19,1
 apply yvel=0.0 from 20,1 to 36,1
 apply yvel=0.0 from 37,1 to 83,1
+;
+;
+;
 ;
 hist reset
 history 2 dytime
