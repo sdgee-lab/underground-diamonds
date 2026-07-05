@@ -29,13 +29,15 @@ attach aside from 385,13 to 385,1 bside from 384,17 to 384,5
 attach aside from 302,5 to 302,1 bside from 384,5 to 384,1
 attach aside from 445,6 to 445,1 bside from 511,6 to 511,1
 apply xvel=0.01 hist table 100 i=1,22 j=1
-apply yvel=0.0  i=1,22 j=1
-apply xvel=0.01 hist table 100 i=23,39 j=1
-apply yvel=0.0  i=23,39 j=1
-apply xvel=0.01 hist table 100 i=41,45 j=1
-apply yvel=0.0  i=41,45 j=1
-apply xvel=0.01 hist table 100 i=46,83 j=1
-apply yvel=0.0  i=46,83 j=1
+;
+apply xvel=0.01 hist table 100 from 1,1 to 19,1
+apply xvel=0.01 hist table 100 from 20,1 to 36,1
+apply xvel=0.01 hist table 100 from 37,1 to 83,1
+;
+apply yvel=0.0 from 1,1 to 19,1
+apply yvel=0.0 from 20,1 to 36,1
+apply yvel=0.0 from 37,1 to 83,1
+;
 hist reset
 history 2 dytime
 ; bl tr moment
