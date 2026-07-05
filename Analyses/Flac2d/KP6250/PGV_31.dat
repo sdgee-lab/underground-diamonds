@@ -41,36 +41,45 @@ apply yvel=0.0 from 37,1 to 83,1
 ;
 ;
 ;
+;
 hist reset
+history nstep 150
 history 2 dytime
+;
+;
 ; bl tr moment
-history 201 element 26 moment1
-history 202 element 58 moment1
-; br tl
-history 211 element 42 moment1
-history 212 element 10 moment1
+history 201 element 29 moment1
+history 202 element 62 moment1
+; br tl moment
+history 211 element 45 moment1
+history 212 element 12 moment1
+;
+history 101 xdisp i=168, j=14
+history 102 ydisp i=175, j=7
+history 103 xdisp i=198, j=31
+history 104 ydisp i=198, j=31
+;
+history 10 xdisp i=191, j=7
+history 106 ydisp i=198, j=14
+history 107 xdisp i=168, j=31
+history 108 ydisp i=168, j=31
 ;
 ;
-history 101 xdisp i=163, j=1
-history 102 ydisp i=163, j=1
-history 103 xdisp i=186, j=17
-history 104 ydisp i=186, j=17
 ;
-history 111 xdisp i=186, j=1
-history 112 ydisp i=155, j=8
-history 113 xdisp i=139, j=42
-history 114 ydisp i=163, j=17
-;
-;
-history 10 xvel i=72, j=1
-;
-history 50 xvel i=375 j=15
-history 51 xvel i=501, j=5
-history 55 xvel i=354, j=2
-;
-history 60 xaccel i=375, j=15
+; Base
+history 10 xvel i=75, j=1
+; Tunnel
+history 50 xvel i=183, j=38
+; Above Tunnel
+history 51 xvel i=337, j=8
+; Ground Surface
+history 55 xvel i=361, j=8
+history 60 xaccel i=361, j=8
 ;
 ;
+;
+;
+
 ;
 set dydt = 0.00001
 solve dytime = 39.945; set time of input motion
