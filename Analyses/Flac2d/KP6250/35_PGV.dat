@@ -12,7 +12,7 @@ set ncwrite 100                    ; set saving step
 set overwrite on
 ;
 ;set dy_damping local 0.02
-set dy_damp rayl 0.01 4.5       ; define 5% damping for ground elements
+set dy_damp rayl 0.02 8.0       ; define 5% damping for ground elements
 ; A1b
 ini dy_damp hyst sig3 1.1 -0.66 -1.55  ; define hysteris of ground elements G D
 ;
@@ -97,7 +97,7 @@ history 60 xaccel i=361, j=9
 ;
 ;
 set dydt = 0.00001
-solve dytime = 27.975
+solve dytime = 28.0
 ;
 ;
 set hisfile=35_PGV/100.txt

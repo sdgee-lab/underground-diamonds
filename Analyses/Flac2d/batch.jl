@@ -33,8 +33,11 @@ function batch_creation(PGs::Vector{Int64}, tp::String, th_fold::String, inp::St
       hs = string(i, tp)
       his = string(hs, ".his")
       hisf = collect(eachline(string("Time-Histories/", th_fold, his)))
-      time = parse(Float64, match(r"\d+", hisf[2]).match) * parse(Float64, match(r" \d.\d+", hisf[2]).match)
-      
+      time = round(parse(Float64, match(r"\d+", hisf[2]).match) * parse(Float64, match(r" \d.\d+", hisf[2]).match), digits=1)
+      #time = parse(Float64, match(r"\d+", hisf[2]).match) * parse(Float64, match(r" \d.\d+", hisf[2]).match)
+      #println("")
+      #println(time)
+      #println("")
       #println("For Time History ", string(i, tp), " Time is: ", time)
       
       if time > 36
@@ -46,7 +49,7 @@ function batch_creation(PGs::Vector{Int64}, tp::String, th_fold::String, inp::St
         datfile[i] = replace(datfile[i], "{TIME}" => time)
       end
 
-  #    writedlm(string(inp, file), datfile)
+      writedlm(string(inp, file), datfile)
     end
     
     push!(batch, string("call ", file))
