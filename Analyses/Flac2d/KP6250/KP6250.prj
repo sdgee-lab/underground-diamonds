@@ -254,11 +254,11 @@
 4 text group 'Tertiary:A1c' i=41,56 j=9,18
 4 text group 'Tertiary:A1c' i=57,82 j=9,18
 4 text model mohr group 'Tertiary:A1a'
-4 text prop density=2000.0 bulk=2.5E8 shear=1.1E8 cohesion=70000.0 friction=0.0 dilation=0.0 tension=0.0 group 'Tertiary:A1a'
+4 text prop density=2000.0 bulk=3.0E8 shear=1.458E8 cohesion=70000.0 friction=0.0 dilation=0.0 tension=0.0 group 'Tertiary:A1a'
 4 text model mohr group 'Tertiary:A1b'
-4 text prop density=2000.0 bulk=5.105089E8 shear=1.7E8 cohesion=150000.0 friction=0.0 dilation=0.0 tension=0.0 group 'Tertiary:A1b'
+4 text prop density=2000.0 bulk=7.0E8 shear=2.45E8 cohesion=150000.0 friction=0.0 dilation=0.0 tension=0.0 group 'Tertiary:A1b'
 4 text model mohr group 'Tertiary:A1c'
-4 text prop density=2000.0 bulk=4.407408E8 shear=2.5E8 cohesion=130000.0 friction=0.0 dilation=0.0 tension=0.0 group 'Tertiary:A1c'
+4 text prop density=2000.0 bulk=3.7E8 shear=2.05E8 cohesion=130000.0 friction=0.0 dilation=0.0 tension=0.0 group 'Tertiary:A1c'
 4 text ; Attach grids
 4 text attach aside from 84,1 to 102,1 bside from 1,9 to 19,9
 4 text attach aside from 20,1 to 20,9 bside from 19,1 to 19,9
@@ -889,9 +889,9 @@
 2 text set r13 0.5
 2 text set r14 0.5
 2 text ; Zone materials: (SI: m-kg-s system units)
-2 text set z1 name 'Tertiary:A1a' model mohr prop density=2000.0 bulk=2.5E8 shear=1.1E8 cohesion=70000.0 friction=0.0 dilation=0.0 tension=0.0
-2 text set z2 name 'Tertiary:A1b' model mohr prop density=2000.0 bulk=5.105089E8 shear=1.7E8 cohesion=150000.0 friction=0.0 dilation=0.0 tension=0.0
-2 text set z3 name 'Tertiary:A1c' model mohr prop density=2000.0 bulk=4.407408E8 shear=2.5E8 cohesion=130000.0 friction=0.0 dilation=0.0 tension=0.0
+2 text set z1 name 'Tertiary:A1a' model mohr prop density=2000.0 bulk=3.E8 shear=1.43E8 cohesion=70000.0 friction=0.0 dilation=0.0 tension=0.0
+2 text set z2 name 'Tertiary:A1b' model mohr prop density=2000.0 bulk=6.8E8 shear=2.45E8 cohesion=150000.0 friction=0.0 dilation=0.0 tension=0.0
+2 text set z3 name 'Tertiary:A1c' model mohr prop density=2000.0 bulk=3.7E8 shear=2.1E8 cohesion=130000.0 friction=0.0 dilation=0.0 tension=0.0
 2 text ; Blocks:
 2 text set b1 point p0 p6 p7 p1 size n2,n10 mult 1,1 ratio r2,r10 group 3
 2 text set b2 point p1 p7 p8 p2 size n3,n10 mult 1,1 ratio r3,r10 group 3
