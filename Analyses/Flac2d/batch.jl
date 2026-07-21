@@ -7,7 +7,7 @@ tp = "_PGV"
 #inp = "Test/"
 thf = "Vel_C/"
 
-n = 2 # Number of batch-n.dat files
+n = 3 # Number of batch-n.dat files
 
 function batch_creation(PGs::Vector{Int64}, tp::String, th_fold::String, inp::String, n::Int64)
   
@@ -46,12 +46,12 @@ function batch_creation(PGs::Vector{Int64}, tp::String, th_fold::String, inp::St
         datfile[i] = replace(datfile[i], "{TIME}" => time)
       end
 
-      writedlm(string(inp, file), datfile)
+  #    writedlm(string(inp, file), datfile)
     end
     
     push!(batch, string("call ", file))
     push!(batch, string("save ", file))
-    push!(batch, "restore excavation.dat")
+    push!(batch, "restore excavation.sav")
     
   end
   
