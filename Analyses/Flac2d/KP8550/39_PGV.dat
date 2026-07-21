@@ -119,5 +119,6 @@ set hisfile=39_PGV/x_4.txt
 hist write 113 vs 2
 set hisfile=39_PGV/y_4.txt
 hist write 114 vs 2
+set hisfile=blank
 ;
 ;
