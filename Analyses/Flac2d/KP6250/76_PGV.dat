@@ -90,8 +90,8 @@ history 50 xvel i=183, j=38
 ; Above Tunnel
 history 51 xvel i=337, j=8
 ; Ground Surface
-history 55 xvel i=361, j=8
-history 60 xaccel i=361, j=8
+history 55 xvel i=361, j=9
+history 60 xaccel i=361, j=9
 ;
 ;
 ;
@@ -109,9 +109,9 @@ set hisfile=76_PGV/0050_Xvel_375_15.txt
 hist write 50 vs 2
 set hisfile=76_PGV/0051_Xvel_501_5.txt
 hist write 51 vs 2
-set hisfile=76_PGV/0055_Xvel_354_2.txt
+set hisfile=76_PGV/PGV.txt
 hist write 55 vs 2
-set hisfile=76_PGV/0060_Xaccel_375_15.txt
+set hisfile=76_PGV/PGA.txt
 hist write 60 vs 2
 ;
 set hisfile=76_PGV/m_1.txt

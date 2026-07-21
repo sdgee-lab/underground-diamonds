@@ -68,7 +68,8 @@ history 40 ydisp i=233 j=1
 ;
 history 50 xaccel i=234 j=19
 history 70 xvel i=234 j=19
-history 51 xaccel i=269 j=9
+history 51 xaccel i=269 j=10
+history 55 xvel i=269 j=10
 ;
 history 60 xvel i=77 j=1
 ;
@@ -85,8 +86,10 @@ set hisfile={FILE}/0040_Ydis_233_1.txt
 hist write 40 vs 2
 set hisfile={FILE}/0050_Xacc_234_19.txt
 hist write 50 vs 2
-set hisfile={FILE}/0051_Xacc_269_9.txt
+set hisfile={FILE}/PGA.txt
 hist write 51 vs 2
+set hisfile={FILE}/PGV.txt
+hist write 55 vs 2
 set hisfile={FILE}/0060_Xvel_77_1.txt
 hist write 60 vs 2
 ;

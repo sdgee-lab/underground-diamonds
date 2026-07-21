@@ -14,20 +14,20 @@ set overwrite on
 ;set dy_damping local 0.02
 set dy_damp rayl 0.02 8.0       ; define 5% damping for ground elements
 ;
-#A2C
+; A2C
 ini dy_damp hyst sig3 1.1 -0.69 -1.2  ; define hysteris of ground elements G D
 ;
-#Man
+; Man
 ini dy_damp hyst sig3 1.1 -0.65 -1.57 i 490 510 j 1 5
 ini dy_damp hyst sig3 1.1 -0.65 -1.57 i 473 488 j 1 5
 ini dy_damp hyst sig3 1.1 -0.65 -1.57 i 467 471 j 1 5
 ini dy_damp hyst sig3 1.1 -0.65 -1.57 i 406 421 j 13 17
 ini dy_damp hyst sig3 1.1 -0.65 -1.57 i 445 465 j 1 5
 ;
-#A2B
+; A2B
 ini dy_damp hyst sig3 1.1 -0.695 -1.18 i 385 421 j 1 12
-ini dy_damp hyst sig3 1.1 -0.695 -1.18 423 433 j 1 12
-ini dy_damp hyst sig3 1.1 -0.695 -1.18 363 383 j 5 16
+ini dy_damp hyst sig3 1.1 -0.695 -1.18 i 423 433 j 1 12
+ini dy_damp hyst sig3 1.1 -0.695 -1.18 i 363 383 j 5 16
 ;
 ;
 ;
@@ -75,7 +75,8 @@ history 114 ydisp i=163, j=17
 history 10 xvel i=72, j=1
 ;
 history 50 xvel i=375 j=15
-history 51 xvel i=501, j=5
+history 51 xvel i=501, j=6
+history 61 xacc i=501, j=6
 history 55 xvel i=354, j=2
 ;
 history 60 xaccel i=375, j=15
@@ -93,8 +94,10 @@ set hisfile=76_PGV/0010_Xvel_base.txt
 hist write 10 vs 2
 set hisfile=76_PGV/0050_Xvel_375_15.txt
 hist write 50 vs 2
-set hisfile=76_PGV/0051_Xvel_501_5.txt
+set hisfile=76_PGV/PGV.txt
 hist write 51 vs 2
+set hisfile=76_PGV/PGA.txt
+hist write 61 vs 2
 set hisfile=76_PGV/0055_Xvel_354_2.txt
 hist write 55 vs 2
 set hisfile=76_PGV/0060_Xaccel_375_15.txt
