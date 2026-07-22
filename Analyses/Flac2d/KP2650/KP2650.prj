@@ -1,7 +1,7 @@
 0 header
 1 code FLAC 8.1
 1 source giic v2.20.533
-1 date Sun Jul 05 12:31:27 EEST 2026
+1 date Wed Jul 22 13:26:23 EEST 2026
 1 type giic-save
 1 rampcolor 4
 0 flac
@@ -447,13 +447,13 @@
 4 text solve elastic
 2 state
 3 file excavation.sav
-3 lastedit 1783241904614
+3 lastedit 1784715931516
 3 batch
-4 text group 'null' region 265,5 194,1 204,1 221,1 268,1 
-4 text model null group 'null' 
+4 text group 'null' region 265,5 194,1 204,1 221,1 268,1
+4 text model null group 'null'
 4 text group delete 'null'
-4 text group 'null' region 139,26 231,1 241,1 
-4 text model null group 'null' 
+4 text group 'null' region 139,26 231,1 241,1
+4 text model null group 'null'
 4 text group delete 'null'
 4 text struct node 1 grid 148,42
 4 text struct node 2 grid 147,42
@@ -717,137 +717,21 @@
 2 branch Branch for batch1.sav
 3 state
 4 file batch1.sav
-4 lastedit 1783242016186
+4 lastedit 1784715931516
 4 batch
 5 text call batch1.dat
 2 branch Branch for batch2.sav
 3 state
 4 file batch2.sav
-4 lastedit 0
+4 lastedit 1784715931516
 4 batch
 5 text ;call batch2.dat
+2 branch branch A
 3 state
-4 file test.sav
-4 lastedit 1783243514724
+4 file batch3.sav
+4 lastedit 1784715983085
 4 batch
-5 text struct prop 5001 density 2500
-5 text ;
-5 text set mech on
-5 text set dyn=on
-5 text ;set flow on
-5 text ;set mu on
-5 text ;set fast off
-5 text set dytime=0.0
-5 text set step 200000000
-5 text set large
-5 text set ncwrite 100                    ; set saving step
-5 text set overwrite on
-5 text ;
-5 text ;set dy_damping local 0.02
-5 text set dy_damp rayl 0.01 4.5       ; define 5% damping for ground elements
-5 text ini dy_damp hyst sig3 1.0 -0.45 -1.1  ; define hysteris of ground elements G D
-5 text ;
-5 text ;
-5 text ;Read Velocity Time History
-5 text his read 100 ../Time-Histories/Vel_c/10_PGV.his
-5 text hist write 100 table 100
-5 text ;
-5 text ; apply dynamic boundaries at side boundaries and bottom boundary
-5 text ini xvel=0.0 yvel=0.0 xdisp=0.0 ydisp=0.0
-5 text ;
-5 text attach aside from 1,1 to 1,16 bside from 83,1 to 83,16
-5 text attach aside from 84,17 to 84,1 bside from 185,17 to 185,1
-5 text attach aside from 385,13 to 385,1 bside from 384,17 to 384,5
-5 text attach aside from 302,5 to 302,1 bside from 384,5 to 384,1
-5 text attach aside from 445,6 to 445,1 bside from 511,6 to 511,1
-5 text apply xvel=0.01 hist table 100 i=1,22 j=1
-5 text apply yvel=0.0  i=1,22 j=1
-5 text apply xvel=0.01 hist table 100 i=23,39 j=1
-5 text apply yvel=0.0  i=23,39 j=1
-5 text apply xvel=0.01 hist table 100 i=41,45 j=1
-5 text apply yvel=0.0  i=41,45 j=1
-5 text apply xvel=0.01 hist table 100 i=46,83 j=1
-5 text apply yvel=0.0  i=46,83 j=1
-5 text hist reset
-5 text history 2 dytime
-5 text ; bl tr moment
-5 text history 201 element 26 moment1
-5 text history 202 element 58 moment1
-5 text ; br tl
-5 text history 211 element 42 moment1
-5 text history 212 element 10 moment1
-5 text ;
-5 text ;
-5 text history 101 xdisp i=163, j=1
-5 text history 102 ydisp i=163, j=1
-5 text history 103 xdisp i=186, j=17
-5 text history 104 ydisp i=186, j=17
-5 text ;
-5 text history 111 xdisp i=186, j=1
-5 text history 112 ydisp i=155, j=8
-5 text history 113 xdisp i=139, j=42
-5 text history 114 ydisp i=163, j=17
-5 text ;
-5 text ;
-5 text history 10 xvel i=72, j=1
-5 text ;
-5 text history 50 xvel i=375 j=15
-5 text history 51 xvel i=501, j=5
-5 text history 55 xvel i=354, j=2
-5 text ;
-5 text history 60 xaccel i=375, j=15
-5 text ;
-5 text ;
-5 text ;
-5 text set dydt = 0.00001
-5 text solve dytime = 10; set time of input motion
-5 text ;
-5 text ;
-5 text set hisfile=00_PGV/100.txt
-5 text hist write 100 vs 2
-5 text ;
-5 text set hisfile=00_PGV/0010_Xvel_base.txt
-5 text hist write 10 vs 2
-5 text set hisfile=00_PGV/0050_Xvel_375_15.txt
-5 text hist write 50 vs 2
-5 text set hisfile=00_PGV/0051_Xvel_501_5.txt
-5 text hist write 51 vs 2
-5 text set hisfile=00_PGV/0055_Xvel_354_2.txt
-5 text hist write 55 vs 2
-5 text set hisfile=00_PGV/0060_Xaccel_375_15.txt
-5 text hist write 60 vs 2
-5 text ;
-5 text set hisfile=00_PGV/m_1.txt
-5 text hist write 201 vs 2
-5 text set hisfile=00_PGV/m_2.txt
-5 text hist write 202 vs 2
-5 text ;
-5 text set hisfile=00_PGV/m_3.txt
-5 text hist write 211 vs 2
-5 text set hisfile=00_PGV/m_4.txt
-5 text hist write 212 vs 2
-5 text ;
-5 text ;
-5 text set hisfile=00_PGV/x_1.txt
-5 text hist write 101 vs 2
-5 text set hisfile=00_PGV/y_1.txt
-5 text hist write 102 vs 2
-5 text set hisfile=00_PGV/x_2.txt
-5 text hist write 103 vs 2
-5 text set hisfile=00_PGV/y_2.txt
-5 text hist write 104 vs 2
-5 text ;
-5 text ;
-5 text set hisfile=00_PGV/x_3.txt
-5 text hist write 111 vs 2
-5 text set hisfile=00_PGV/y_3.txt
-5 text hist write 112 vs 2
-5 text set hisfile=00_PGV/x_4.txt
-5 text hist write 113 vs 2
-5 text set hisfile=00_PGV/y_4.txt
-5 text hist write 114 vs 2
-5 text ;
-5 text ;
+5 text call batch3.dat
 0 vgrid
 1 body
 2 text begin_body ''
