@@ -12,7 +12,7 @@ set ncwrite 100                    ; set saving step
 set overwrite on
 ;
 ;set dy_damping local 0.02
-set dy_damp rayl 0.01 4.5       ; define 5% damping for ground elements
+set dy_damp rayl 0.02 8.0       ; define 5% damping for ground elements
 ini dy_damp hyst sig3 1.1 -0.70 -1.14  ; define hysteris of ground elements G D
 ;
 ;Read Velocity Time History
@@ -74,7 +74,7 @@ history 55 xvel i=269 j=10
 history 60 xvel i=77 j=1
 ;
 set dydt = 0.00001
-solve dytime = 20.02 ; set time of input motion
+solve dytime = 20.0 ; set time of input motion
 ;
 ;
 set hisfile=19_PGV/100.txt
