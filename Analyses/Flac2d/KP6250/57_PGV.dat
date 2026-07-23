@@ -97,7 +97,7 @@ history 60 xaccel i=361, j=9
 ;
 ;
 set dydt = 0.00001
-solve dytime = 25.9
+solve dytime = 26.9
 ;
 ;
 set hisfile=57_PGV/100.txt

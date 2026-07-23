@@ -35,7 +35,7 @@ ini dy_damp hyst sig3 1.1 -0.69 -1.2 i 1 18 j 1 8
 ;
 ;
 ;Read Velocity Time History
-his read 100 ../Time-Histories/Vel_c/8_PGV.his
+his read 100 ../Time-Histories/Vel_c/25_PGV.his
 hist write 100 table 100
 ;
 ;
@@ -97,51 +97,51 @@ history 60 xaccel i=361, j=9
 ;
 ;
 set dydt = 0.00001
-solve dytime = 22.7
+solve dytime = 74.5
 ;
 ;
-set hisfile=8_PGV/100.txt
+set hisfile=25_PGV/100.txt
 hist write 100 vs 2
 ;
-set hisfile=8_PGV/0010_Xvel_base.txt
+set hisfile=25_PGV/0010_Xvel_base.txt
 hist write 10 vs 2
-set hisfile=8_PGV/0050_Xvel_375_15.txt
+set hisfile=25_PGV/0050_Xvel_375_15.txt
 hist write 50 vs 2
-set hisfile=8_PGV/0051_Xvel_501_5.txt
+set hisfile=25_PGV/0051_Xvel_501_5.txt
 hist write 51 vs 2
-set hisfile=8_PGV/PGV.txt
+set hisfile=25_PGV/PGV.txt
 hist write 55 vs 2
-set hisfile=8_PGV/PGA.txt
+set hisfile=25_PGV/PGA.txt
 hist write 60 vs 2
 ;
-set hisfile=8_PGV/m_1.txt
+set hisfile=25_PGV/m_1.txt
 hist write 201 vs 2
-set hisfile=8_PGV/m_2.txt
+set hisfile=25_PGV/m_2.txt
 hist write 202 vs 2
 ;
-set hisfile=8_PGV/m_3.txt
+set hisfile=25_PGV/m_3.txt
 hist write 211 vs 2
-set hisfile=8_PGV/m_4.txt
+set hisfile=25_PGV/m_4.txt
 hist write 212 vs 2
 ;
 ;
-set hisfile=8_PGV/x_1.txt
+set hisfile=25_PGV/x_1.txt
 hist write 101 vs 2
-set hisfile=8_PGV/y_1.txt
+set hisfile=25_PGV/y_1.txt
 hist write 102 vs 2
-set hisfile=8_PGV/x_2.txt
+set hisfile=25_PGV/x_2.txt
 hist write 103 vs 2
-set hisfile=8_PGV/y_2.txt
+set hisfile=25_PGV/y_2.txt
 hist write 104 vs 2
 ;
 ;
-set hisfile=8_PGV/x_3.txt
+set hisfile=25_PGV/x_3.txt
 hist write 111 vs 2
-set hisfile=8_PGV/y_3.txt
+set hisfile=25_PGV/y_3.txt
 hist write 112 vs 2
-set hisfile=8_PGV/x_4.txt
+set hisfile=25_PGV/x_4.txt
 hist write 113 vs 2
-set hisfile=8_PGV/y_4.txt
+set hisfile=25_PGV/y_4.txt
 hist write 114 vs 2
 set hisfile=blank
 ;
