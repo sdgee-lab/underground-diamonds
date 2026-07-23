@@ -9,12 +9,14 @@ include("frag.jl")
 
 #positions = ["KP2650/", "KP6250/", "KP8550/"]
 #positions = ["KP2650/"]
-#positions = ["KP6250/"]
-positions = ["KP8550/"]
+positions = ["KP6250/"]
+#positions = ["KP8550/"]
 
 ##=
 suf = "_PGV/"
-folders = string.([10, 20, 31, 35, 44, 49, 62, 76, 99, 106], suf)
+folders = string.([7, 8, 12, 13, 17, 19, 20, 24, 27, 34, 35, 39, 44, 54, 57, 76, 87, 99, 109, 131], suf)
+
+if false
 
 paths = vcat(map(p -> string.(p, folders), positions)...)
 lnδd::Vector{Float64} = []
@@ -24,22 +26,11 @@ lnPGV::Vector{Float64} = []
 
 F = []
 
+
 for path in paths
   r = readdir(path)
-  d1 = deflection(path)
-#  d2 = deflection2(path)
-  
+  println(path)
   ##=
-  push!(lnδd, log(deflection(path)))
-  gv = CSV.File(string(path, "ground_vel.csv"))
-  push!(lnPGV, log(maximum(gv.Xvelocity)))
- # println("Path: ", maximum(gv.Xvelocity))
-  
-  ga = CSV.File(string(path, "ground_acc.csv"))
-  push!(lnPGA, log(maximum(ga.Xacceleration)))
-  # =#
-  
-  #=
   for file in r
     
     ##=
@@ -49,8 +40,8 @@ for path in paths
       (vel, t, dt) = get_vel(path, file)
       acc = derivative(vel, dt)
       
-      global dfacc = DataFrame(t = t, Xacceleration = acc)
-      CSV.write(string(path, "ground_acc.csv"), dfacc)
+      dfacc = DataFrame(t = t, Xacceleration = acc)
+     # CSV.write(string(path, "ground_acc.csv"), dfacc)
       println(path)
       println(file)
       println(maximum(dfacc.Xacceleration))
@@ -72,46 +63,78 @@ for path in paths
         
       elseif file =="0051_Xvel_501_5.csv"
   #      mv(string(path, file), string(path, "ground_vel", file[end-3:end]))
-        cvel = CSV.File(string(path, file))
-        dvel = DataFrame(t = cvel.t, Xvelocity=cvel.Xvelocity)
+   #     cvel = CSV.File(string(path, file))
+  #      dvel = DataFrame(t = cvel.t, Xvelocity=cvel.Xvelocity)
        # CSV.write(string(path, "ground_vel.csv"), dvel)
         #println(string(path, file))
-        
-        
-        
         
       end
       
     end
     
     if endswith(file, ".txt")
-      fp = string(path, file)
     
+      
+      fp = string(path, file)
+      
       lines = collect(eachline(fp))
-
-      if length(findall(nothing .!= match.(r"History", lines))) > 1
-        println("Warning: multiple \"History\" instances found in file")
-      elseif isempty(lines)	
+      if !isempty(lines)
+        
+        ind = findall(nothing .!= match.(r"History", lines))
+      
+        if length(ind) > 1
+          println("Warning: multiple \"History\" instances found in file, keeping only newest")
+          lines = lines[ind[end]:end]
+          writedlm(fp, lines)
+        end
+      
+        csv_export(fp)
+     
+      end
+#=      
+      if isempty(lines)	
 #        println(string("Skip: ", fp))
+
       else
-        m = match(r"60_Xvel", file)
+  #      m = match(r"60_Xvel", file)
        # println(file)
         
-        if !isnothing(m)
+#        if !isnothing(m)
 #          println(fp)
 #          println(string(path, "ground_vel", file[end-)
 #          mv(fp, string(path, "ground_vel", file[end-3:end]))
 
         end
-#       	csv_export(fp)
+=#
+
        	#println(fp)
       
-      end
+#      end
     end
   end
   # =#
+  
+  d1 = deflection(path)
+  
+  if isempty(collect(eachline(string(path, "x_3.txt"))))
+    d2 = 0.
+  else
+    d2 = deflection2(path)  
+  end
+
+  ##=
+  push!(lnδd, log(max(d1, d2)))
+  gv = CSV.File(string(path, "PGV.csv"))
+  push!(lnPGV, log(maximum(gv.Xvelocity)))
+ # println("Path: ", maximum(gv.Xvelocity))
+  
+  ga = CSV.File(string(path, "PGA.csv"))
+  push!(lnPGA, log(maximum(ga.Xacceleration)))
+  # =#
+  
 end
 # =#
+end
 
 function edps(lnδd, lnPGA, lnPGV, edp_names)
   df = DataFrame(δ = lnδd, lnPGA = lnPGA, lnPGV = lnPGV)
@@ -177,9 +200,9 @@ function edps(lnδd, lnPGA, lnPGV, edp_names)
   println(pgaimed)
   println(pgvimed)
   
-  #fragility(pgaimed/10, pgvimed, β1, β2, edp_names)
+#  fragility(pgaimed/10, pgvimed, β1, β2, edp_names)
   
- # save(string("/home/hootseer/Documents/underground-diamonds/LaTeX/figures/fragility/", edp_names, "-PSDMs.png"), j)
+  save(string("/home/hootseer/Documents/underground-diamonds/LaTeX/figures/fragility/", edp_names, "-PSDMs.png"), j)
   
 # =#
 end

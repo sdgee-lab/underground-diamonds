@@ -44,7 +44,7 @@ function deflection2(inp::String)
   δd = d .-D
   
   
-  maxδd = maximum(δd)
+  maxδd = maximum(abs.(δd))/D
 
   return maxδd
 
