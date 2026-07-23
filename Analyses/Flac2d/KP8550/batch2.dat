@@ -1,3 +1,9 @@
+call 19_PGV.dat
+save 19_PGV.sav
+restore excavation.sav
+call 20_PGV.dat
+save 20_PGV.sav
+restore excavation.sav
 call 24_PGV.dat
 save 24_PGV.sav
 restore excavation.sav
@@ -6,16 +12,4 @@ save 27_PGV.sav
 restore excavation.sav
 call 34_PGV.dat
 save 34_PGV.sav
-restore excavation.sav
-call 35_PGV.dat
-save 35_PGV.sav
-restore excavation.sav
-call 39_PGV.dat
-save 39_PGV.sav
-restore excavation.sav
-call 44_PGV.dat
-save 44_PGV.sav
-restore excavation.sav
-call 54_PGV.dat
-save 54_PGV.sav
 restore excavation.sav

@@ -13,9 +13,3 @@ restore excavation.sav
 call 17_PGV.dat
 save 17_PGV.sav
 restore excavation.sav
-call 19_PGV.dat
-save 19_PGV.sav
-restore excavation.sav
-call 20_PGV.dat
-save 20_PGV.sav
-restore excavation.sav

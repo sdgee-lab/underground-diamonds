@@ -1,0 +1,139 @@
+struct prop 5001 density 2500
+;
+set mech on
+set dyn=on
+;set flow on
+;set mu on
+;set fast off
+set dytime=0.0
+set step 200000000
+set large
+set ncwrite 150 ; set saving step
+set overwrite on
+;
+;set dy_damping local 0.02
+set dy_damp rayl 0.02 8.0       ; define 5% damping for ground elements
+;
+; A2C
+ini dy_damp hyst sig3 1.1 -0.69 -1.2  ; define hysteris of ground elements G D
+;
+; Man
+ini dy_damp hyst sig3 1.1 -0.65 -1.57 i 490 510 j 1 5
+ini dy_damp hyst sig3 1.1 -0.65 -1.57 i 473 488 j 1 5
+ini dy_damp hyst sig3 1.1 -0.65 -1.57 i 467 471 j 1 5
+ini dy_damp hyst sig3 1.1 -0.65 -1.57 i 406 421 j 13 17
+ini dy_damp hyst sig3 1.1 -0.65 -1.57 i 445 465 j 1 5
+;
+; A2B
+ini dy_damp hyst sig3 1.1 -0.695 -1.18 i 385 421 j 1 12
+ini dy_damp hyst sig3 1.1 -0.695 -1.18 i 423 433 j 1 12
+ini dy_damp hyst sig3 1.1 -0.695 -1.18 i 363 383 j 5 16
+;
+;
+;
+;Read Velocity Time History
+his read 100 ../Time-Histories/Vel_c/55_PGV.his
+hist write 100 table 100
+;
+; apply dynamic boundaries at side boundaries and bottom boundary
+ini xvel=0.0 yvel=0.0 xdisp=0.0 ydisp=0.0
+;
+; Velocity Time History
+apply ff
+attach aside from 1,1 to 1,16 bside from 83,1 to 83,16
+attach aside from 84,17 to 84,1 bside from 185,17 to 185,1
+attach aside from 385,13 to 385,1 bside from 384,17 to 384,5
+attach aside from 302,5 to 302,1 bside from 384,5 to 384,1
+attach aside from 445,6 to 445,1 bside from 511,6 to 511,1
+apply xvel=0.01 hist table 100 i=1,22 j=1
+apply yvel=0.0  i=1,22 j=1
+apply xvel=0.01 hist table 100 i=23,39 j=1
+apply yvel=0.0  i=23,39 j=1
+apply xvel=0.01 hist table 100 i=41,45 j=1
+apply yvel=0.0  i=41,45 j=1
+apply xvel=0.01 hist table 100 i=46,83 j=1
+apply yvel=0.0  i=46,83 j=1
+hist reset
+history 2 dytime
+; bl tr moment
+history 201 element 26 moment1
+history 202 element 58 moment1
+; br tl
+history 211 element 42 moment1
+history 212 element 10 moment1
+;
+;
+history 101 xdisp i=163, j=1
+history 102 ydisp i=163, j=1
+history 103 xdisp i=186, j=17
+history 104 ydisp i=186, j=17
+;
+history 111 xdisp i=186, j=1
+history 112 ydisp i=155, j=8
+history 113 xdisp i=139, j=42
+history 114 ydisp i=163, j=17
+;
+;
+history 10 xvel i=72, j=1
+;
+history 50 xvel i=375 j=15
+history 51 xvel i=501, j=6
+history 61 xacc i=501, j=6
+history 55 xvel i=354, j=2
+;
+history 60 xaccel i=375, j=15
+;
+;
+;
+set dydt = 0.00001
+solve dytime = 29.1; set time of input motion
+;
+;
+set hisfile=55_PGV/100.txt
+hist write 100 vs 2
+;
+set hisfile=55_PGV/0010_Xvel_base.txt
+hist write 10 vs 2
+set hisfile=55_PGV/0050_Xvel_375_15.txt
+hist write 50 vs 2
+set hisfile=55_PGV/PGV.txt
+hist write 51 vs 2
+set hisfile=55_PGV/PGA.txt
+hist write 61 vs 2
+set hisfile=55_PGV/0055_Xvel_354_2.txt
+hist write 55 vs 2
+set hisfile=55_PGV/0060_Xaccel_375_15.txt
+hist write 60 vs 2
+;
+set hisfile=55_PGV/m_1.txt
+hist write 201 vs 2
+set hisfile=55_PGV/m_2.txt
+hist write 202 vs 2
+;
+set hisfile=55_PGV/m_3.txt
+hist write 211 vs 2
+set hisfile=55_PGV/m_4.txt
+hist write 212 vs 2
+;
+;
+set hisfile=55_PGV/x_1.txt
+hist write 101 vs 2
+set hisfile=55_PGV/y_1.txt
+hist write 102 vs 2
+set hisfile=55_PGV/x_2.txt
+hist write 103 vs 2
+set hisfile=55_PGV/y_2.txt
+hist write 104 vs 2
+;
+;
+set hisfile=55_PGV/x_3.txt
+hist write 111 vs 2
+set hisfile=55_PGV/y_3.txt
+hist write 112 vs 2
+set hisfile=55_PGV/x_4.txt
+hist write 113 vs 2
+set hisfile=55_PGV/y_4.txt
+hist write 114 vs 2
+set hisfile=blank
+;
+;

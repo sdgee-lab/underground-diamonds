@@ -1,0 +1,127 @@
+struct prop 5001 density 2500.0
+;
+set mech on
+set dyn=on
+;set flow on
+;set mu on
+;set fast off
+set dytime=0.0
+set step 200000000
+set large
+set ncwrite 100                    ; set saving step
+set overwrite on
+;
+;set dy_damping local 0.02
+set dy_damp rayl 0.02 8.0       ; define 5% damping for ground elements
+ini dy_damp hyst sig3 1.1 -0.70 -1.14  ; define hysteris of ground elements G D
+;
+;Read Velocity Time History
+his read 100 ../Time-Histories/Vel_c/21_PGV.his
+hist write 100 table 100
+;
+; apply dynamic boundaries at side boundaries and bottom boundary
+ini xvel=0.0 yvel=0.0 xdisp=0.0 ydisp=0.0
+;
+; Velocity Time History
+apply ff
+attach aside from 1,1 to 1,32 bside from 81,1 to 81,32
+attach aside from 82,1 to 82,21 bside from 81,32 to 81,52
+attach aside from 244,1 to 244,10 bside from 277,1 to 277,10
+;fix y from 1,1 to 81,1
+;fix y from 1,1 to 1,32
+;fix y from 82,1 to 82,21
+;fix y from 244,1 to 244,10
+;fix y from 81,1 to 81,52
+;fix y from 277,1 to 277,10
+apply xvel=0.01 hist table 100 i=1,81 j=1
+apply yvel=0.0 i=1,81 j=1
+;
+hist reset
+history nstep 100
+history 2 dytime
+;
+;
+;
+; bl tr moment
+history 201 element 33 moment1
+history 202 element 73 moment1
+; br tl
+history 211 element 53 moment1
+history 212 element 13 moment1
+;
+history 101 xdisp i=192, j=21
+history 102 ydisp i=192, j=21
+history 103 xdisp i=182, j=71
+history 104 ydisp i=192, j=61
+;
+history 111 xdisp i=192, j=41
+history 112 ydisp i=192, j=41
+history 113 xdisp i=162, j=71
+history 114 ydisp i=162, j=71
+;
+;
+;
+;
+history 10 xdisp i=233 j=1
+;
+history 40 ydisp i=233 j=1
+;
+history 50 xaccel i=234 j=19
+history 70 xvel i=234 j=19
+history 51 xaccel i=269 j=10
+history 55 xvel i=269 j=10
+;
+history 60 xvel i=77 j=1
+;
+set dydt = 0.00001
+solve dytime = 51.3 ; set time of input motion
+;
+;
+set hisfile=21_PGV/100.txt
+hist write 100 vs 2
+;
+set hisfile=21_PGV/0010_Xdis_233_1.txt
+hist write 10 vs 2
+set hisfile=21_PGV/0040_Ydis_233_1.txt
+hist write 40 vs 2
+set hisfile=21_PGV/0050_Xacc_234_19.txt
+hist write 50 vs 2
+set hisfile=21_PGV/PGA.txt
+hist write 51 vs 2
+set hisfile=21_PGV/PGV.txt
+hist write 55 vs 2
+set hisfile=21_PGV/0060_Xvel_77_1.txt
+hist write 60 vs 2
+;
+set hisfile=21_PGV/m_1.txt
+hist write 201 vs 2
+set hisfile=21_PGV/m_2.txt
+hist write 202 vs 2
+;
+set hisfile=21_PGV/m_3.txt
+hist write 211 vs 2
+set hisfile=21_PGV/m_4.txt
+hist write 212 vs 2
+;
+;
+set hisfile=21_PGV/x_1.txt
+hist write 101 vs 2
+set hisfile=21_PGV/y_1.txt
+hist write 102 vs 2
+set hisfile=21_PGV/x_2.txt
+hist write 103 vs 2
+set hisfile=21_PGV/y_2.txt
+hist write 104 vs 2
+;
+;
+set hisfile=21_PGV/x_3.txt
+hist write 111 vs 2
+set hisfile=21_PGV/y_3.txt
+hist write 112 vs 2
+set hisfile=21_PGV/x_4.txt
+hist write 113 vs 2
+set hisfile=21_PGV/y_4.txt
+hist write 114 vs 2
+set hisfile=blank
+;
+;

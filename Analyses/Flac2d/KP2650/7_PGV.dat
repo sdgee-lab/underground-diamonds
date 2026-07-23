@@ -86,7 +86,7 @@ history 60 xaccel i=375, j=15
 ;
 ;
 set dydt = 0.00001
-solve dytime = 35.5; set time of input motion
+solve dytime = 20.4; set time of input motion
 ;
 ;
 set hisfile=7_PGV/100.txt

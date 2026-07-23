@@ -74,7 +74,7 @@ history 55 xvel i=269 j=10
 history 60 xvel i=77 j=1
 ;
 set dydt = 0.00001
-solve dytime = 35.8 ; set time of input motion
+solve dytime = 31.1 ; set time of input motion
 ;
 ;
 set hisfile=44_PGV/100.txt
