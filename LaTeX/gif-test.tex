@@ -1,0 +1,27 @@
+%!TeX program = pdflatex
+\documentclass[tikz]{beamer}
+\usepackage{animate}
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{multimedia}
+\usepackage{media9}
+
+%\addmediapath{resource}
+
+\begin{document}
+	
+	\begin{frame}{AAA} \end{frame}
+%	\sound[]{codec}{codec.wav}
+%	\includemedia{codec}{codec.wav}
+       \includemedia[
+	addresource=codec.mp3,
+	flashvars={source=codec.mp3&autoPlay=true}
+	]{}{APlayer.swf}
+
+
+	\animategraphics[autoplay, loop, label=parallelogramme]{30}{parallelogramme}{}{}
+	
+	\begin{frame}{BBBB}\end{frame}
+	
+	
+\end{document}
