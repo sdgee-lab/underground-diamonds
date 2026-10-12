@@ -8,21 +8,30 @@ include("LinearAccelerationMethod.jl")
 include("frag.jl")
 
 #positions = ["KP2650/", "KP6250/", "KP8550/"]
-#positions = ["KP2650/"]
-positions = ["KP6250/"]
+positions = ["KP2650/"]
+#positions = ["KP6250/"]
 #positions = ["KP8550/"]
+# απλή γραμμική παλινδρόμηση
+function line(b, a)
+  f(x) = a*x + b
+  return f
+end
 
+#M0 = 1.0*.3^2*30*10^3
+M0 = 200*10^3
+  
 ##=
 suf = "_PGV/"
-folders = string.([7, 8, 12, 13, 17, 19, 20, 24, 27, 34, 35, 39, 44, 54, 57, 76, 87, 99, 109, 131], suf)
+folders = string.([7, 8, 12, 13, 17, 19, 20, 24, 27, 34, 35, 39, 44, 54, 57, 76, 87, 99, 109, 131, 6, 11, 15, 16, 21, 22, 25, 48, 55, 86], suf)
 
-if false
+if true
 
 paths = vcat(map(p -> string.(p, folders), positions)...)
 lnδd::Vector{Float64} = []
+lnμ::Vector{Float64} = []
 lnPGA::Vector{Float64} = []
 lnPGV::Vector{Float64} = []
-#edp_names = ["KP2650", "KP6250", "KP8550"]
+edp_names = ["KP2650", "KP6250", "KP8550"]
 
 F = []
 
@@ -30,7 +39,7 @@ F = []
 for path in paths
   r = readdir(path)
   println(path)
-  ##=
+  #=
   for file in r
     
     ##=
@@ -46,9 +55,9 @@ for path in paths
       println(file)
       println(maximum(dfacc.Xacceleration))
       
-      
     end
     # =#
+    
     if endswith(file, ".csv")
       
       if file == "0060_Xaccel_375_15.csv"
@@ -72,6 +81,7 @@ for path in paths
       
     end
     
+    #=
     if endswith(file, ".txt")
     
       
@@ -91,29 +101,13 @@ for path in paths
         csv_export(fp)
      
       end
-#=      
-      if isempty(lines)	
-#        println(string("Skip: ", fp))
-
-      else
-  #      m = match(r"60_Xvel", file)
-       # println(file)
-        
-#        if !isnothing(m)
-#          println(fp)
-#          println(string(path, "ground_vel", file[end-)
-#          mv(fp, string(path, "ground_vel", file[end-3:end]))
-
-        end
-=#
-
-       	#println(fp)
-      
-#      end
     end
+    # =#
+    
   end
   # =#
-  
+  # =#
+
   d1 = deflection(path)
   
   if isempty(collect(eachline(string(path, "x_3.txt"))))
@@ -121,31 +115,35 @@ for path in paths
   else
     d2 = deflection2(path)  
   end
-
+  μ = moment(path)/M0
   ##=
   push!(lnδd, log(max(d1, d2)))
+  push!(lnμ, log(μ))
   gv = CSV.File(string(path, "PGV.csv"))
   push!(lnPGV, log(maximum(gv.Xvelocity)))
  # println("Path: ", maximum(gv.Xvelocity))
   
   ga = CSV.File(string(path, "PGA.csv"))
   push!(lnPGA, log(maximum(ga.Xacceleration)))
+  
+  
   # =#
   
 end
 # =#
 end
 
-function edps(lnδd, lnPGA, lnPGV, edp_names)
-  df = DataFrame(δ = lnδd, lnPGA = lnPGA, lnPGV = lnPGV)
+function edps(lnδd, lnμ, lnPGA, lnPGV, edp_names)
+  df = DataFrame(δ = lnδd, μ = lnμ, lnPGA = lnPGA, lnPGV = lnPGV)
   CSV.write(string(positions[1], "edp.csv"), df)
 ##=
   w = 420
-  j = Figure(size = (1000, 500))
+  # Displacement
+  global j = Figure(size = (1000, 500))
   ax = Axis(j[1,1], xlabel = L"\ln{PGA}", ylabel = L"\ln{δ_D/D}", xgridvisible = false, ygridvisible = false, width = w)
   ax2 = Axis(j[1,2], xlabel = L"\ln{PGV}", ylabel = L"\ln{δ_D/D}", xgridvisible = false, ygridvisible = false, width = w)
-  global ols = lm(@formula(δ ~ lnPGA), df)
-  global ols2 = lm(@formula(δ ~ lnPGV), df)
+  ols = lm(@formula(δ ~ lnPGA), df)
+  ols2 = lm(@formula(δ ~ lnPGV), df)
 
   d1 = extrema(predict(ols))
   d2 = extrema(predict(ols2))
@@ -176,6 +174,41 @@ function edps(lnδd, lnPGA, lnPGV, edp_names)
   δd = log.([0.00281, 0.00312, 0.00362])
   h1 = hlines!.(ax, δd, linestyle = :dash)
   h2 = hlines!.(ax2, δd, linestyle = :dash)
+  
+  # Moment
+  global fm = Figure(size = (1000, 500))
+  axm = Axis(fm[1,1], xlabel = L"\ln{PGA}", ylabel = L"\ln{μ}", xgridvisible = false, ygridvisible = false, width = w)
+  axm2 = Axis(fm[1,2], xlabel = L"\ln{PGV}", ylabel = L"\ln{μ}", xgridvisible = false, ygridvisible = false, width = w)
+  olsm = lm(@formula(μ ~ lnPGA), df)
+  olsm2 = lm(@formula(μ ~ lnPGV), df)
+
+  m1 = extrema(predict(olsm))
+  m2 = extrema(predict(olsm2))
+  println(lnμ)
+  scatter!(axm, lnPGA, lnμ, color = :black)
+  lines!(axm, [a[1], a[2]], [m1[1], m1[2]], color = :black, linestyle = :dash, linewidth = 2.0)
+
+  rsqm = round(r2(olsm), digits=3)
+  cim = coef(olsm)
+  cm = round.(cim, digits=2)
+  sm = cm[1] >= 0 ? "+" : "-"
+  text!(axm, minimum(lnPGA), log(1.25)-0.3, text = L"y=%$(cm[2])x %$(s) %$(abs(cm[1]))")
+  text!(axm, minimum(lnPGA), log(1.25)-0.4, text = L"$R^2$=%$(rsqm)" )
+
+  scatter!(axm2, lnPGV, lnμ, color = :black)
+  lines!(axm2, [v[1], v[2]], [m2[1], m2[2]] , color = :black, linestyle = :dash, linewidth = 2.0)
+
+  rsqm2 = round(r2(olsm2), digits=3)
+  cim2 = coef(olsm2)
+  cm2 = round.(cim2, digits=2)
+  sm2 = cm[1] >= 0 ? "+" : "-"
+  text!(axm2, minimum(lnPGV), log(1.25)-0.3, text = L"y=%$(cm2[2])x %$(sm2) %$(abs(cm2[1]))")
+  text!(axm2, minimum(lnPGV), log(1.25)-0.4, text = L"$R^2$=%$(rsqm2)" )
+  
+  
+  μ = log.([1.25, 2.0, 3.0])
+  hm1 = hlines!.(axm, μ, linestyle = :dash)
+  hm2 = hlines!.(axm2, μ, linestyle = :dash)
 
   #j
   
@@ -183,12 +216,16 @@ function edps(lnδd, lnPGA, lnPGV, edp_names)
   χ1m = sum(lnPGA)/l
   x2m = sum(lnPGV)/l
   ym = sum(lnδd)/l
+  ymm = sum(lnμ)/l
 
   βc = 0.3
   βds = 0.4
   
-  βDa = deviance(ols)
-  βDv = deviance(ols2)
+ # global βDa = deviance(ols)
+  #global βDa1 = sqrt(βDa/(l-2))
+  βDa = sqrt(deviance(ols)/(l-2))
+  
+  βDv = sqrt(deviance(ols2)/(l-2))
   
   β1 = sqrt(βc^2 + βds^2 + βDa^2)
   β2 = sqrt(βc^2 + βds^2 + βDv^2)
@@ -197,14 +234,31 @@ function edps(lnδd, lnPGA, lnPGV, edp_names)
   pgaimed = exp.((δd .- ci[1])./ci[2])
   pgvimed = exp.((δd .- ci2[1])./ci2[2])
   
-  println(pgaimed)
-  println(pgvimed)
+  #println(pgaimed)
+  #println(pgvimed)
   
-#  fragility(pgaimed/10, pgvimed, β1, β2, edp_names)
+  βmDa = sqrt(deviance(olsm)/(l-2))
+  βmDv = sqrt(deviance(olsm2)/(l-2))
   
-  save(string("/home/hootseer/Documents/underground-diamonds/LaTeX/figures/fragility/", edp_names, "-PSDMs.png"), j)
+  
+  βm1 = sqrt(βc^2 + βds^2 + βmDa^2)
+  βm2 = sqrt(βc^2 + βds^2 + βmDv^2)
+  
+  
+  pgaimedm = exp.((μ .- cim[1])./cim[2])
+  pgvimedm = exp.((μ .- cim2[1])./cim2[2])
+  
+  fragility(pgaimed/10, pgvimed, β1, β2, edp_names, "deflection")
+  fragility(pgaimedm/10, pgvimedm, βm1, βm2, edp_names, "moment")
+
+  
+  save(string("/home/hootseer/Documents/underground-diamonds/LaTeX/figures/fragility/", edp_names, "-deflection-PSDMs.png"), j)
+  save(string("/home/hootseer/Documents/underground-diamonds/LaTeX/figures/fragility/", edp_names, "-moment-PSDMs.png"), fm)
   
 # =#
 end
+
+#edps(lnδd, lnμ, lnPGA, lnPGV, positions[1][1:end-1])
+
 
 

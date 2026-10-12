@@ -1,13 +1,14 @@
 using DelimitedFiles
 #pgs = [10, 20, 31, 35, 44, 49, 62, 76, 99, 106]
-pgs = [7, 8, 12, 13, 17, 19, 20, 24, 27, 34, 35, 39, 44, 54, 57, 76, 87, 99, 109, 131]
+pgs = [7, 8, 12, 13, 17, 19, 20, 24, 27, 34, 35, 39, 44, 54, 57, 76, 87, 99, 109, 131, 6, 11, 15, 16, 21, 22, 25, 48, 55, 86]
 all_pgs = [6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 19, 20, 21, 22, 23, 24, 25, 27, 31, 33, 34, 35, 36, 39, 42, 43, 44, 48, 49, 54, 55, 56, 57, 62, 63, 64, 65, 76, 85, 86, 87, 99, 106, 109, 131]
 tp = "_PGV"
 #inp = "KP2650/"
+#inp = "KP6250/"
 #inp = "Test/"
 thf = "Vel_C/"
 
-n = 3 # Number of batch-n.dat files
+n = 6 # Number of batch-n.dat files
 
 function batch_creation(PGs::Vector{Int64}, tp::String, th_fold::String, inp::String, n::Int64)
   
@@ -53,7 +54,7 @@ function batch_creation(PGs::Vector{Int64}, tp::String, th_fold::String, inp::St
     end
     
     push!(batch, string("call ", file))
-    push!(batch, string("save ", file))
+    push!(batch, string("save ", string(file[1:end-4], ".sav")))
     push!(batch, "restore excavation.sav")
     
   end
@@ -71,5 +72,7 @@ function batch_creation(PGs::Vector{Int64}, tp::String, th_fold::String, inp::St
 end
 
 
-inps = ["KP2650/", "KP6250/", "KP8550/"]
+#inps = ["KP2650/", "KP6250/", "KP8550/"]
+inps = ["KP2650/", "KP8550/"]
+
 batch_creation.(Ref(pgs), tp, thf, inps, n)

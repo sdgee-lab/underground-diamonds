@@ -20,6 +20,9 @@ function transform(IM::Vector{Float64}, dt::Float64)
 
 end
 
+
+# WARNING: Derivative function does not work!
+#=
 function derivative(IM::Vector{Float64}, dt::Float64)
 
   l = length(IM)
@@ -65,6 +68,7 @@ function derive(path::String, record::String, out::String)
   
   return nothing
 end
+=#
 
 function get_acc(f)
 

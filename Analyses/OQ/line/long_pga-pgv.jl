@@ -67,5 +67,5 @@ Legend(f[2, 2],
 f
 
 
-save("/home/hootseer/Documents/underground-diamonds/LaTeX/figures/hazard/long_pga-pgv.png", f)
+#save("/home/hootseer/Documents/underground-diamonds/LaTeX/figures/hazard/long_pga-pgv.png", f)
 

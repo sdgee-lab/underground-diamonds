@@ -9,7 +9,7 @@ pgv = CSV.File("output/line-vs-m/hazard_curve-mean-PGV.csv")
 n = 366
 
 imt_a = logrange(.0005, 3., 30)
-imt_v = logrange(.5, 10., 30)
+imt_v = logrange(1., 80., 30)
 poe_a = map(i -> pga[n][i], 4:length(pga[n]))
 poe_v = map(i -> pgv[n][i], 4:length(pgv[n]))
 
@@ -20,7 +20,7 @@ lines!(pga_ax, imt_a, poe_a, color = :black)
 
 pgv_f = Figure()
 
-pgv_ax = Axis(pgv_f[1, 1], xscale = log10, yscale = log10, title = "PGV Hazard Curve", subtitle = "Kilometric Position 8+550", ylabel = "Annual Probability of Exceedance", xlabel = L"PGV ($cm/sec$)", xgridvisible = false, ygridvisible = false, yticks = logrange(0.0001, 1., 5), xticks = logrange(0.001, 100, 6),)# limits = (nothing, (0.001, .6)))
+pgv_ax = Axis(pgv_f[1, 1], xscale = log10, yscale = log10, title = "PGV Hazard Curve", subtitle = "Kilometric Position 8+550", ylabel = "Annual Probability of Exceedance", xlabel = L"PGV ($cm/sec$)", xgridvisible = false, ygridvisible = false, yticks = logrange(0.0001, 1., 5), xticks = logrange(0.001, 100, 6), limits = ((0.8, 120), nothing))# limits = (nothing, (0.001, .6)))
 
 lines!(pgv_ax, imt_v, poe_v, color = :black)
 

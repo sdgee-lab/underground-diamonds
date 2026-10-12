@@ -65,4 +65,4 @@ Legend(f[2, 2],
 	
 f
 
-save("/home/hootseer/Documents/underground-diamonds/LaTeX/figures/hazard/method_comparison.png", f)
+#save("/home/hootseer/Documents/underground-diamonds/LaTeX/figures/hazard/method_comparison.png", f)

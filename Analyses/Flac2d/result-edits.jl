@@ -14,6 +14,8 @@ function csv_export(fp) #fp is a full filepath
   end
   
   
+  #global c = copy(lines)
+  #println(fp)
   par = match(r"\s\w+ \w+", match(r"time(.)+", lines[3]).match).match[2:end]
   header = replace(string("t,", par), " " => "")
   file = vcat(header, lines[5:end])

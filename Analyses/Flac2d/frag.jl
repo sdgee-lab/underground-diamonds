@@ -1,11 +1,11 @@
 using Distributions
 using CairoMakie
 
-function fragility(pgaimed, pgvimed, β1, β2, name)
+function fragility(pgaimed, pgvimed, β1, β2, name, typ::String)
   
   global f = Figure(size=(800,400))
   ax = Axis(f[1,1], limits = ((0, 1.6), (0.0, 1.0)), yticks = 0:0.2:1.0, xticks=0.0:.4:1.6, xgridvisible = false, ygridvisible=false, xlabel = "PGA (g)", ylabel = "Probability of Damage")
-  ax2 = Axis(f[1,2], limits = ((0, 0.6), (0.0, 1.0)), yticks = 0:0.2:1.0, xticks=0:0.2:.6, xgridvisible = false, ygridvisible=false, xlabel = L"PGV ($m/sec$)")
+  ax2 = Axis(f[1,2], limits = ((0, 1.0), (0.0, 1.0)), yticks = 0:0.2:1.0, xticks=0:0.2:1.0, xgridvisible = false, ygridvisible=false, xlabel = L"PGV ($m/sec$)")
   ia = 0:0.01:1.6
   iv = 0.0:0.01:1.0
   #i = 0:0.1:20
@@ -41,7 +41,7 @@ function fragility(pgaimed, pgvimed, β1, β2, name)
 
   f
 
-  save(string("/home/hootseer/Documents/underground-diamonds/LaTeX/figures/fragility/", name, "-fragility.png"), f)
+  save(string("/home/hootseer/Documents/underground-diamonds/LaTeX/figures/fragility/", name, "-", typ, "-fragility.png"), f)
   
 
 end

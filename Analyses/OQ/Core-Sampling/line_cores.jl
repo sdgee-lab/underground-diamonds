@@ -1,16 +1,15 @@
 using CairoMakie
 
-
 include("../merc-transform.jl")
 
 f = CairoMakie.Figure(size = (800, 500))
 	
-ax = Axis(f[2,1], xlabel = L"Kilometer Point $(m)$", ylabel = L"Vs_{30}\; (m/sec)", limits = (nothing, (200, 450)))
+ax = Axis(f[2,1], xlabel = L"Kilometer Point $(m)$", ylabel = L"Vs_{30}\; (m/sec)", limits = (nothing, (200, 450)), xgridvisible=false, ygridvisible=false, xtickformat = values -> ["$(Int64(round(value/1000, RoundDown)))+000" for value in values])
 
-ax2 = Axis(f[1,1], ylabel = L"Mean PGA$(g)$", title = "Mean Surface PGA along tunnel axis", subtitle = "Thessaloniki Metro, Line 1 Track 1")
+ax2 = Axis(f[1,1], ylabel = L"Mean PGA$(g)$", title = "Mean Surface PGA along tunnel axis", subtitle = "Thessaloniki Metro, Line 1 Track 1", xgridvisible=false, ygridvisible=false, xtickformat = values -> ["$(Int64(round(value/1000, RoundDown)))+000" for value in values])
 linkxaxes!(ax, ax2)
 
-ax3 = Axis(f[1, 2], title = "Hazard Curves", subtitle = "New Railway Station", xlabel = L"PGA (g)", ylabel = "Annual PoE", xscale = log10, yscale = log10, yticks = logrange(0.00001, 1, 6))#, ytickformat = LinRange(0.0001, 10, 60))
+ax3 = Axis(f[1, 2], title = "Hazard Curves", subtitle = "New Railway Station", xlabel = L"PGA (g)", ylabel = "Annual PoE", xscale = log10, yscale = log10, yticks = logrange(0.00001, 1, 6), xgridvisible=false, ygridvisible=false,)#, ytickformat = LinRange(0.0001, 10, 60))
 
 ax2.width[] = 320; ax3.width[] =ax2.width[]*2/3
 
