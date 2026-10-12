@@ -13,6 +13,7 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{wasysym}
 \usepackage{mathtools}
 \numberwithin{equation}{chapter}
 
@@ -49,6 +50,7 @@
 \usepackage{parskip} 
 \usepackage{setspace} %affects spacing document wise
 \usepackage{booktabs} % \toprule \midrule \bottomrule \hline
+\usepackage{multirow}
 
 \usepackage[style=authoryear, maxbibnames=20, maxcitenames = 2, mincitenames=1, dashed=false, uniquename=minfull, sortcites=no]{biblatex}
 
@@ -121,7 +123,8 @@
 	\tableofcontents
 
 	\newpage
-	\thispagestyle{plain} % empty
+%	\thispagestyle{plain} % empty
+	\thispagestyle{empty} % empty
 	\mbox{}
 	
 	%%%___LIST OF FIGURES______________________________________________    
